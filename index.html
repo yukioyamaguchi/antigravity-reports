@@ -600,7 +600,7 @@ function renderReport(data) {
 }
 
 // ─── パスワード認証 ───
-const HASH = '209eacd53e532e07b7be7e5c7de1f0f06bb1cefd4bfbab8c82bc92d7ab267620';
+const HASH = 'ac0a3dfd6dddb20962cecff6ee5fe65e19d3923be20e52c5ab52ff877f7e4c32';
 
 async function sha256(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
