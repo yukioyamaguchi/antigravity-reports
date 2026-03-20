@@ -305,6 +305,21 @@
 </head>
 <body>
 
+<!-- パスワードゲート -->
+<div id="authGate" style="display:flex; min-height:100vh; align-items:center; justify-content:center; flex-direction:column; gap:20px; padding:20px;">
+  <div style="text-align:center;">
+    <div style="font-size:14px; font-weight:300; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:8px;">Antigravity</div>
+    <div style="font-size:20px; font-weight:700;">Skill Report</div>
+    <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">閲覧にはパスワードが必要です</div>
+  </div>
+  <div style="display:flex; gap:8px; width:100%; max-width:320px;">
+    <input id="authInput" type="password" placeholder="パスワード" style="flex:1; padding:12px 16px; border:1px solid var(--card-border); border-radius:12px; background:var(--card); color:var(--text); font-family:'Noto Sans JP',sans-serif; font-size:14px; outline:none;" autofocus>
+    <button id="authBtn" style="padding:12px 20px; background:var(--gold); color:var(--bg); border:none; border-radius:12px; font-weight:700; font-family:'Noto Sans JP',sans-serif; cursor:pointer;">→</button>
+  </div>
+  <div id="authError" style="font-size:12px; color:var(--red); display:none;">パスワードが違います</div>
+</div>
+
+<div id="mainContent" style="display:none;">
 <div class="header">
   <h1>Antigravity</h1>
   <div class="date" id="reportDate">—</div>
@@ -382,28 +397,14 @@
   <div style="font-size:12px; color:var(--text-dim); margin-bottom:16px;">
     2026-03-20 導入 — SKILL.mdを実際に読み、GitHub統計を確認した上で厳選
   </div>
-
-  <div class="player-card" style="margin:0 0 20px 0; background:rgba(201,168,76,0.05); border-color:var(--gold-dim);">
-    <div class="player-label">
-      <span class="icon">🎙️</span>
-      <span>外部スキル解説（ミカ・約12分）</span>
-    </div>
-    <audio id="skillsAudio" controls preload="none" style="width:100%; height:48px;">
-      <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/github_skills_audio.mp3" type="audio/mpeg">
-    </audio>
-    <div class="speed-controls">
-      <button class="skill-speed-btn" data-speed="0.75">0.75×</button>
-      <button class="skill-speed-btn active" data-speed="1">1×</button>
-      <button class="skill-speed-btn" data-speed="1.25">1.25×</button>
-      <button class="skill-speed-btn" data-speed="1.5">1.5×</button>
-      <button class="skill-speed-btn" data-speed="2">2×</button>
-    </div>
-  </div>
 </div>
 
-<!-- スキルカード群 -->
+<!-- スキルカード群（個別音声付き） -->
 <div class="report-section" style="margin-top:12px;">
   <div class="section-title">🏆 マーケティングスキルズ <span style="font-size:11px; color:var(--text-dim); font-weight:300;">⭐14.9k — coreyhaines31</span></div>
+  <audio class="skill-audio" controls preload="none" style="width:100%; height:40px; margin-bottom:12px;">
+    <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/skill_01_marketingskills.mp3" type="audio/mpeg">
+  </audio>
   <div style="font-size:12px; color:var(--text-dim); line-height:1.8;">
     SaaSマーケティング専門家Corey Hainesが作った30スキル集から5つを厳選配置。<br>
     <span style="color:var(--gold);">📧 email-sequence</span> — ステップメール設計（4種のテンプレート・送信タイミング付き）<br>
@@ -416,6 +417,9 @@
 
 <div class="report-section" style="margin-top:12px;">
   <div class="section-title">🧹 ヒューマナイザー <span style="font-size:11px; color:var(--text-dim); font-weight:300;">⭐10.2k — blader</span></div>
+  <audio class="skill-audio" controls preload="none" style="width:100%; height:40px; margin-bottom:12px;">
+    <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/skill_02_humanizer.mp3" type="audio/mpeg">
+  </audio>
   <div style="font-size:12px; color:var(--text-dim); line-height:1.8;">
     AI生成テキストの「AI臭さ」を25パターンに分類して検出・修正するスキル。Wikipedia「AI Writing Signs」プロジェクトが根拠。重要性の過度な強調、宣伝的表現、曖昧な帰属、エムダッシュ多用、迎合トーンなどを検出。<span style="color:var(--yellow);">⚠️ 英語ベース。日本語版の翻案が必要。</span>
   </div>
@@ -423,6 +427,9 @@
 
 <div class="report-section" style="margin-top:12px;">
   <div class="section-title">🎬 YouTubeクリッパー <span style="font-size:11px; color:var(--text-dim); font-weight:300;">⭐1.5k — op7418</span></div>
+  <audio class="skill-audio" controls preload="none" style="width:100%; height:40px; margin-bottom:12px;">
+    <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/skill_03_youtube_clipper.mp3" type="audio/mpeg">
+  </audio>
   <div style="font-size:12px; color:var(--text-dim); line-height:1.8;">
     YouTube動画の字幕をAIが意味解析し、2-5分チャプターに自動分割→FFmpegで切り抜き→字幕焼き込み。OJTダイジェスト制作やYouTubeショート素材の自動抽出に有効。<span style="color:var(--yellow);">⚠️ 中英バイリンガル主対象。日本語はカスタマイズ要。</span>
   </div>
@@ -430,6 +437,9 @@
 
 <div class="report-section" style="margin-top:12px;">
   <div class="section-title">🎙️ AIマーケティングスキルズ <span style="font-size:11px; color:var(--text-dim); font-weight:300;">⭐160 — BrianRWagner</span></div>
+  <audio class="skill-audio" controls preload="none" style="width:100%; height:40px; margin-bottom:12px;">
+    <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/skill_04_ai_marketing.mp3" type="audio/mpeg">
+  </audio>
   <div style="font-size:12px; color:var(--text-dim); line-height:1.8;">
     <span style="color:var(--gold);">voice-extractor</span> — 文章サンプルから書き手の「声」を7フェーズで自動抽出。山口トーンのAI教育に最適。<br>
     <span style="color:var(--gold);">de-ai-ify</span> — AI臭さ除去の軽量版（1000+コンテンツの比較分析に基づく）。<br>
@@ -439,6 +449,9 @@
 
 <div class="report-section" style="margin-top:12px;">
   <div class="section-title">📧 Eメールマーケティングバイブル <span style="font-size:11px; color:var(--text-dim); font-weight:300;">⭐87 — CosmoBlk</span></div>
+  <audio class="skill-audio" controls preload="none" style="width:100%; height:40px; margin-bottom:12px;">
+    <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/skill_05_email_bible.mp3" type="audio/mpeg">
+  </audio>
   <div style="font-size:12px; color:var(--text-dim); line-height:1.8;">
     55,000語・908ソース・44人の専門家の知見を統合したメルマガの教科書。19業界別プレイブック付き。mypageのステップメール設計・配信性向上に直結。
   </div>
@@ -446,6 +459,9 @@
 
 <div class="report-section" style="margin-top:12px;">
   <div class="section-title">💰 チャーリーCFO <span style="font-size:11px; color:var(--text-dim); font-weight:300;">⭐173 — EveryInc</span></div>
+  <audio class="skill-audio" controls preload="none" style="width:100%; height:40px; margin-bottom:12px;">
+    <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/skill_06_charlie_cfo.mp3" type="audio/mpeg">
+  </audio>
   <div style="font-size:12px; color:var(--text-dim); line-height:1.8;">
     チャーリー・マンガー哲学に基づく財務管理スキル。キャッシュマネジメント、ユニットエコノミクス、13週間キャッシュフロー予測。Mailchimp・Zapier等のケーススタディ付き。<span style="color:var(--yellow);">⚠️ SaaS前提。OJT・コンサル型には翻案が必要。</span>
   </div>
@@ -453,6 +469,9 @@
 
 <div class="report-section" style="margin-top:12px;">
   <div class="section-title">🎨 クリエイティブディレクター <span style="font-size:11px; color:var(--text-dim); font-weight:300;">⭐32 — smixs</span></div>
+  <audio class="skill-audio" controls preload="none" style="width:100%; height:40px; margin-bottom:12px;">
+    <source src="https://aczqvcvwecpgzuywydfl.supabase.co/storage/v1/object/public/skill-reports/skill_07_creative_director.mp3" type="audio/mpeg">
+  </audio>
   <div style="font-size:12px; color:var(--text-dim); line-height:1.8;">
     20+のクリエイティブ手法（SIT・TRIZ・SCAMPER等）を体系化。カンヌ受賞作基準の6軸スコアリングと「Kill Your Darlings」機能で広告アイデアを生成・評価。参照ファイル6点付き。
   </div>
@@ -461,6 +480,7 @@
 <div class="footer">
   Antigravity AI Organization — Auto-generated Daily Report
 </div>
+</div><!-- /mainContent -->
 
 <script>
 const SUPABASE_URL = 'https://aczqvcvwecpgzuywydfl.supabase.co';
@@ -579,21 +599,40 @@ function renderReport(data) {
   document.getElementById('content').innerHTML = html;
 }
 
-// Skills audio speed controls
-const skillsAudio = document.getElementById('skillsAudio');
-const skillSpeedBtns = document.querySelectorAll('.skill-speed-btn');
-if (skillsAudio && skillSpeedBtns.length) {
-  skillSpeedBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const speed = parseFloat(btn.dataset.speed);
-      skillsAudio.playbackRate = speed;
-      skillSpeedBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
+// ─── パスワード認証 ───
+const HASH = '209eacd53e532e07b7be7e5c7de1f0f06bb1cefd4bfbab8c82bc92d7ab267620';
+
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-loadReport();
+async function tryAuth() {
+  const input = document.getElementById('authInput').value;
+  const hash = await sha256(input);
+  if (hash === HASH) {
+    sessionStorage.setItem('ag-auth', 'ok');
+    document.getElementById('authGate').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+    loadReport();
+  } else {
+    document.getElementById('authError').style.display = 'block';
+    document.getElementById('authInput').value = '';
+    document.getElementById('authInput').focus();
+  }
+}
+
+document.getElementById('authBtn').addEventListener('click', tryAuth);
+document.getElementById('authInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') tryAuth();
+});
+
+// セッション内は再入力不要
+if (sessionStorage.getItem('ag-auth') === 'ok') {
+  document.getElementById('authGate').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'block';
+  loadReport();
+}
 </script>
 </body>
 </html>
