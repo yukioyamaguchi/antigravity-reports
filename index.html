@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antigravity — Skill Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card: #12121a;
+    --card-border: #1e1e2e;
+    --gold: #c9a84c;
+    --gold-dim: #a0822e;
+    --gold-glow: rgba(201, 168, 76, 0.15);
+    --text: #e8e6e3;
+    --text-dim: #8a8a9a;
+    --green: #4ade80;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --blue: #60a5fa;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 40px 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #12121a 0%, #1a1a2e 100%);
+    border-bottom: 1px solid var(--card-border);
+    padding: 24px 20px 20px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .header .date {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .header .subtitle {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* Audio Player */
+  .player-card {
+    margin: 20px 16px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  .player-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .player-label .icon { font-size: 18px; }
+  audio {
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    outline: none;
+  }
+  audio::-webkit-media-controls-panel {
+    background: #1a1a2e;
+  }
+  .speed-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .speed-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 56px;
+    text-align: center;
+  }
+  .speed-btn:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+  }
+  .speed-btn.active {
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 16px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .stat-value.green { color: var(--green); }
+  .stat-value.red { color: var(--red); }
+  .stat-value.yellow { color: var(--yellow); }
+  .stat-value.blue { color: var(--blue); }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  .stat-pct {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  /* Report Section */
+  .report-section {
+    margin: 20px 16px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-name {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 400;
+  }
+  .skill-ki {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .skill-bar-container {
+    flex: 1;
+    margin: 0 12px;
+    height: 4px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-bar {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+    transition: width 0.8s ease;
+  }
+
+  .empty-list {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  .loading .spinner {
+    width: 32px; height: 32px;
+    border: 3px solid var(--card-border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Warning badge */
+  .warning-badge {
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 16px 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--yellow);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Antigravity</h1>
+  <div class="date" id="reportDate">—</div>
+  <div class="subtitle">Skill Health Report by Mika</div>
+</div>
+
+<div class="player-card">
+  <div class="player-label">
+    <span class="icon">🎙️</span>
+    <span>音声レポート（ミカ）</span>
+  </div>
+  <audio id="audioPlayer" controls preload="auto">
+    <source id="audioSource" src="" type="audio/mpeg">
+  </audio>
+  <div class="speed-controls">
+    <button class="speed-btn" data-speed="0.75">0.75×</button>
+    <button class="speed-btn active" data-speed="1">1×</button>
+    <button class="speed-btn" data-speed="1.25">1.25×</button>
+    <button class="speed-btn" data-speed="1.5">1.5×</button>
+    <button class="speed-btn" data-speed="2">2×</button>
+    <button class="speed-btn" data-speed="2.5">2.5×</button>
+  </div>
+</div>
+
+<div id="content">
+  <div class="loading">
+    <div class="spinner"></div>
+    <div>レポートを読み込み中...</div>
+  </div>
+</div>
+
+<div class="footer">
+  Antigravity AI Organization — Auto-generated Daily Report
+</div>
+
+<script>
+const SUPABASE_URL = 'https://aczqvcvwecpgzuywydfl.supabase.co';
+const BUCKET = 'skill-reports';
+const BASE = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}`;
+
+// Audio speed controls
+const audio = document.getElementById('audioPlayer');
+const speedBtns = document.querySelectorAll('.speed-btn');
+
+speedBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const speed = parseFloat(btn.dataset.speed);
+    audio.playbackRate = speed;
+    speedBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // Save preference
+    localStorage.setItem('ag-audio-speed', speed);
+  });
+});
+
+// Restore saved speed
+const savedSpeed = localStorage.getItem('ag-audio-speed');
+if (savedSpeed) {
+  audio.playbackRate = parseFloat(savedSpeed);
+  speedBtns.forEach(b => {
+    b.classList.remove('active');
+    if (b.dataset.speed === savedSpeed) b.classList.add('active');
+  });
+}
+
+// Load report data
+async function loadReport() {
+  try {
+    const resp = await fetch(`${BASE}/latest_report.json?t=${Date.now()}`);
+    if (!resp.ok) throw new Error('Report not found');
+    const data = await resp.json();
+    renderReport(data);
+  } catch (e) {
+    document.getElementById('content').innerHTML =
+      '<div class="loading">レポートがまだありません。<br>明朝6時に最初のレポートが生成されます。</div>';
+  }
+}
+
+function renderReport(data) {
+  document.getElementById('reportDate').textContent = data.date || '—';
+
+  // Set audio source
+  const audioSrc = `${BASE}/latest_audio.mp3?t=${Date.now()}`;
+  document.getElementById('audioSource').src = audioSrc;
+  audio.load();
+
+  const maxKI = Math.max(...(data.top_skills || []).map(s => s.ki_count), 1);
+
+  let html = '';
+
+  // Stats grid
+  html += `
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value blue">${data.total || 0}</div>
+        <div class="stat-label">全スキル数</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value green">${data.active || 0}</div>
+        <div class="stat-label">活きたスキル</div>
+        <div class="stat-pct">${data.active_pct || 0}%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value red">${data.empty || 0}</div>
+        <div class="stat-label">空スキル</div>
+        <div class="stat-pct">${data.empty_pct || 0}%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value yellow">${data.ki_missing || 0}</div>
+        <div class="stat-label">KI書き戻し漏れ</div>
+      </div>
+    </div>
+  `;
+
+  // Warning if KI writeback missing
+  if (data.ki_missing > 0) {
+    html += `<div class="warning-badge">⚠️ KI書き戻し漏れが ${data.ki_missing}件 あります</div>`;
+  }
+
+  // Top skills
+  if (data.top_skills && data.top_skills.length > 0) {
+    html += '<div class="report-section"><div class="section-title">🏆 トップ成長スキル</div>';
+    data.top_skills.forEach(s => {
+      const pct = Math.round((s.ki_count / maxKI) * 100);
+      const name = s.name.replace(/_/g, ' ').replace(/^\d+\s*/, '');
+      html += `
+        <div class="skill-item">
+          <span class="skill-name">${name}</span>
+          <div class="skill-bar-container">
+            <div class="skill-bar" style="width:${pct}%"></div>
+          </div>
+          <span class="skill-ki">KI ${s.ki_count}</span>
+        </div>
+      `;
+    });
+    html += '</div>';
+  }
+
+  // Empty skills
+  if (data.empty_skills && data.empty_skills.length > 0) {
+    html += '<div class="report-section"><div class="section-title">🔴 空スキル（成長待ち）</div>';
+    html += '<div class="empty-list">';
+    data.empty_skills.forEach(s => {
+      const name = s.name.replace(/_/g, ' ').replace(/^\d+\s*/, '');
+      html += `${name}<br>`;
+    });
+    html += '</div></div>';
+  }
+
+  document.getElementById('content').innerHTML = html;
+}
+
+loadReport();
+</script>
+</body>
+</html>
