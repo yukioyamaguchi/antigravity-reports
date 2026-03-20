@@ -240,6 +240,67 @@
     font-size: 13px;
     color: var(--yellow);
   }
+
+  /* Rules Section */
+  .rules-section {
+    margin: 28px 16px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px 20px;
+  }
+  .rules-header {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .rule-group {
+    margin-bottom: 16px;
+  }
+  .rule-group:last-child { margin-bottom: 0; }
+  .rule-group-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .rule-item {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    padding: 4px 0 4px 16px;
+    position: relative;
+  }
+  .rule-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+  }
+  .rule-item em {
+    color: var(--text);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .rule-item .red { color: var(--red); }
+  .rule-item .green { color: var(--green); }
+  .rule-divider {
+    border: none;
+    border-top: 1px solid var(--card-border);
+    margin: 12px 0;
+  }
 </style>
 </head>
 <body>
@@ -272,6 +333,46 @@
   <div class="loading">
     <div class="spinner"></div>
     <div>レポートを読み込み中...</div>
+  </div>
+</div>
+
+<div class="rules-section">
+  <div class="rules-header">📖 スキル運用ルール（毎朝リマインド）</div>
+
+  <div class="rule-group">
+    <div class="rule-group-title">🔴 スキル必読ルール</div>
+    <div class="rule-item">作業開始前に担当マネジャーの<em>SKILL.mdを必ず読む</em>こと。読まずに作業開始は<span class="red">禁止</span></div>
+    <div class="rule-item">SKILL.mdは各マネジャーの<em>唯一のナレッジソース（SSOT）</em></div>
+    <div class="rule-item">読まない場合 → 過去のCEOフィードバック・失敗パターンが無視され<em>同じミスが繰り返される</em></div>
+  </div>
+
+  <hr class="rule-divider">
+
+  <div class="rule-group">
+    <div class="rule-group-title">📋 KI運用ルール</div>
+    <div class="rule-item">全エラーは <em>incidents/</em> にKIとして記録（100%改善転換）</div>
+    <div class="rule-item"><em>アクティブKI</em>は最大20〜30件。超えたら重要度を再評価しアーカイブへ</div>
+    <div class="rule-item">繰り返すエラーは個別に並べず<em>本質的な原因パターンに統合</em></div>
+    <div class="rule-item">KIの教訓は該当マネジャーSKILL.mdに<em>「❌ 禁止パターン」</em>として書き戻す</div>
+    <div class="rule-item">根本対策に「注意する」「気をつける」は<span class="red">使用禁止</span>（仕組みで防げ）</div>
+  </div>
+
+  <hr class="rule-divider">
+
+  <div class="rule-group">
+    <div class="rule-group-title">⚙️ 自動化の鉄則</div>
+    <div class="rule-item">AIの記憶・意志力に依存する自動化は<span class="red">全面NG</span></div>
+    <div class="rule-item"><span class="red">❌</span> 「マニュアルに書いたから大丈夫」「ワークフローに書けばAIが従う」</div>
+    <div class="rule-item"><span class="green">✅</span> スクリプト・cron・watchdog等のAI非依存の仕組みで実装</div>
+  </div>
+
+  <hr class="rule-divider">
+
+  <div class="rule-group">
+    <div class="rule-group-title">🛡️ ミカ（EA）のルール</div>
+    <div class="rule-item">ミカは<em>実作業を絶対にしない</em>。制作・コーディングは担当マネジャーに委譲</div>
+    <div class="rule-item">担当マネジャーが不在なら<em>山口さんに相談して新設</em>。代行はありえない</div>
+    <div class="rule-item">「<em>誰の仕事でもない仕事</em>」を絶対に発生させない</div>
   </div>
 </div>
 
