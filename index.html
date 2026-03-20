@@ -296,6 +296,46 @@
   }
   .rule-item .red { color: var(--red); }
   .rule-item .green { color: var(--green); }
+
+  /* History Nav */
+  .history-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--card);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .history-btn {
+    width: 36px; height: 36px;
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .history-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .history-btn:disabled { opacity: 0.3; cursor: default; }
+  .history-select {
+    padding: 8px 12px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+  }
+  .history-label {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
   .rule-divider {
     border: none;
     border-top: 1px solid var(--card-border);
@@ -324,6 +364,13 @@
   <h1>Antigravity</h1>
   <div class="date" id="reportDate">—</div>
   <div class="subtitle">Skill Health Report by Mika</div>
+</div>
+
+<div class="history-nav">
+  <button class="history-btn" id="prevDay" title="前の日">◀</button>
+  <select class="history-select" id="dateSelect"><option>latest</option></select>
+  <button class="history-btn" id="nextDay" title="次の日">▶</button>
+  <span class="history-label" id="historyCount"></span>
 </div>
 
 <div class="player-card">
@@ -512,24 +559,104 @@ if (savedSpeed) {
   });
 }
 
-// Load report data
-async function loadReport() {
+// ─── 履歴管理 ───
+let reportDates = [];
+let currentDateIndex = 0;
+
+async function loadReportIndex() {
   try {
-    const resp = await fetch(`${BASE}/latest_report.json?t=${Date.now()}`);
+    const resp = await fetch(`${BASE}/reports/index.json?t=${Date.now()}`);
+    if (resp.ok) {
+      const idx = await resp.json();
+      reportDates = idx.dates || [];
+    }
+  } catch(e) {}
+  // 常に latest を先頭に
+  if (reportDates.length === 0) reportDates = ['latest'];
+  updateDateSelector();
+}
+
+function updateDateSelector() {
+  const sel = document.getElementById('dateSelect');
+  sel.innerHTML = '';
+  // latestを先頭に
+  const opt0 = document.createElement('option');
+  opt0.value = 'latest';
+  opt0.textContent = '最新';
+  sel.appendChild(opt0);
+  // 日付一覧
+  reportDates.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = d;
+    sel.appendChild(opt);
+  });
+  sel.value = currentDateIndex === 0 ? 'latest' : reportDates[currentDateIndex - 1];
+  document.getElementById('historyCount').textContent = `${reportDates.length}日分`;
+  document.getElementById('prevDay').disabled = (currentDateIndex >= reportDates.length);
+  document.getElementById('nextDay').disabled = (currentDateIndex <= 0);
+}
+
+document.getElementById('dateSelect').addEventListener('change', e => {
+  const val = e.target.value;
+  if (val === 'latest') {
+    currentDateIndex = 0;
+  } else {
+    currentDateIndex = reportDates.indexOf(val) + 1;
+  }
+  updateDateSelector();
+  loadReport(val === 'latest' ? null : val);
+});
+
+document.getElementById('prevDay').addEventListener('click', () => {
+  if (currentDateIndex < reportDates.length) {
+    currentDateIndex++;
+    const date = reportDates[currentDateIndex - 1];
+    document.getElementById('dateSelect').value = date;
+    updateDateSelector();
+    loadReport(date);
+  }
+});
+
+document.getElementById('nextDay').addEventListener('click', () => {
+  if (currentDateIndex > 0) {
+    currentDateIndex--;
+    if (currentDateIndex === 0) {
+      document.getElementById('dateSelect').value = 'latest';
+      updateDateSelector();
+      loadReport(null);
+    } else {
+      const date = reportDates[currentDateIndex - 1];
+      document.getElementById('dateSelect').value = date;
+      updateDateSelector();
+      loadReport(date);
+    }
+  }
+});
+
+// Load report data
+async function loadReport(date) {
+  const jsonUrl = date
+    ? `${BASE}/reports/${date}.json?t=${Date.now()}`
+    : `${BASE}/latest_report.json?t=${Date.now()}`;
+  try {
+    const resp = await fetch(jsonUrl);
     if (!resp.ok) throw new Error('Report not found');
     const data = await resp.json();
-    renderReport(data);
+    renderReport(data, date);
   } catch (e) {
     document.getElementById('content').innerHTML =
       '<div class="loading">レポートがまだありません。<br>明朝6時に最初のレポートが生成されます。</div>';
   }
 }
 
-function renderReport(data) {
+function renderReport(data, date) {
   document.getElementById('reportDate').textContent = data.date || '—';
 
-  // Set audio source
-  const audioSrc = `${BASE}/latest_audio.mp3?t=${Date.now()}`;
+  // Set audio source (date-specific or latest)
+  const audioSrc = date
+    ? `${BASE}/audio/${date}.mp3?t=${Date.now()}`
+    : `${BASE}/latest_audio.mp3?t=${Date.now()}`;
   document.getElementById('audioSource').src = audioSrc;
   audio.load();
 
@@ -615,6 +742,7 @@ async function tryAuth() {
     document.getElementById('authGate').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
     loadReport();
+    loadReportIndex();
   } else {
     document.getElementById('authError').style.display = 'block';
     document.getElementById('authInput').value = '';
@@ -632,6 +760,7 @@ if (sessionStorage.getItem('ag-auth') === 'ok') {
   document.getElementById('authGate').style.display = 'none';
   document.getElementById('mainContent').style.display = 'block';
   loadReport();
+  loadReportIndex();
 }
 </script>
 </body>
