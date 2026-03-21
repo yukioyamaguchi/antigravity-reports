@@ -125,14 +125,15 @@
   .step-number {
     background: var(--gold);
     color: var(--bg);
-    width: 32px;
+    width: 60px;
+    min-width: 60px;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 16px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
   }
   .step-title {
     font-size: 18px;
@@ -153,6 +154,45 @@
   }
   .step-content li {
     margin-bottom: 8px;
+  }
+  .vimeo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    padding: 8px 16px;
+    background: rgba(29, 161, 242, 0.1);
+    border: 1px solid rgba(29, 161, 242, 0.3);
+    color: #38bdf8;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+  .vimeo-link:hover {
+    background: rgba(29, 161, 242, 0.2);
+  }
+  .ayp-note {
+    background: rgba(248, 113, 113, 0.1);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    margin-top: 16px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .ayp-diagram {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--gold-dim);
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-family: monospace;
+    color: var(--gold);
+    white-space: pre-wrap;
+    line-height: 1.4;
   }
   
   /* Tips Container */
@@ -427,96 +467,142 @@
     <!-- タブ１：講座の進め方 -->
     <div id="tab-workflow" class="tab-content active">
       <div class="workflow-container">
-          <div class="section-title" style="margin-top: 0;">🚀 YouTubeチャンネル（シニア朗読系）構築フロー</div>
+          <div class="section-title" style="margin-top: 0;">🚀 YouTube運営 完全マニュアル (AYPベース)</div>
           <p style="color:var(--text-dim); font-size:14px; margin-bottom: 32px; line-height: 1.6;">
-            このデータベースを活用して、ゼロからシニア系朗読チャンネルを立ち上げ、成功確率を高めるための「戦略的ステップ」を順番に解説します。
+            AYP（YouTube講座）の正規カリキュラムとマニュアルに基づく「ゼロからチャンネルを作るステップ」です。各ステップの詳細や画面の操作方法は、必ずリンク先のVimeo動画を確認してください。
           </p>
 
           <div class="step-card">
               <div class="step-header">
-                  <div class="step-number">1</div>
-                  <div class="step-title">異常値（バズ）動画のリストアップと構造化分析</div>
+                  <div class="step-number">Phase 1</div>
+                  <div class="step-title">ジャンル・ベンチマークの選定</div>
               </div>
               <div class="step-content">
                   <strong>【概要】</strong><br>
-                  まずは先人の「成功パターン（異常に再生が回った動画）」をリストアップします（※本ページの「異常値動画一覧」にあたります）。その後、AIツール（NotebookLMなど）に字幕を突っ込んで、何が視聴者の心を掴んだのか「フック（冒頭）」と「物語モデル（起承転結・対立構造）」を丸裸にします。<br><br>
+                  YouTubeで成功するための最重要工程です。「人気であること」と「自分が続けられること」の重なる部分を見つけましょう。<br><br>
                   <strong>【細かいやり方】</strong>
                   <ul>
-                      <li>このページにある「異常値動画一覧」から数本を選びます。</li>
-                      <li>その字幕データをフルコピーし、NotebookLM等のAIに貼り付けます。</li>
-                      <li>「この動画が想定読者（シニア層）に刺さった理由を、冒頭5秒のフックと、全体を通した対立構造（例: 嫁 vs 姑）から分析して」とプロンプトで指示します。</li>
-                      <li>出力された分析結果を、構成の「型」としてストックしていきます。</li>
+                      <li>ジャンルリサーチシートを使用して、同ジャンルの参考チャンネルをすべて書き出します。</li>
+                      <li>PickUpチャンネルを判定し<b>「直近3ヶ月以内の立ち上げ」「登録者1,000人〜3000人以上」「異常値（登録者の3倍以上の再生）が5本以上」</b>のチャンネルが複数あるジャンルを選びます。</li>
                   </ul>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> 「楽しい ≠ 楽（らく）」です。嫌なジャンルだと心理的負担で続かないので、少しでも興味を持てるものを選びましょう。また、登録者が何万人もいる大きなチャンネルが安定して視聴されているからといって参入可能とは限りません。必ず「新規チャンネルが伸びているか」で判断します。
+                  </div>
+                  <div>
+                    <a href="https://vimeo.com/930545601" target="_blank" class="vimeo-link">▶ 動画解説: ジャンル選定をはじめる前に</a>
+                    <a href="https://vimeo.com/1128759325" target="_blank" class="vimeo-link">▶ 動画解説: 再生されているジャンルかどうか（基準の確認）</a>
+                  </div>
               </div>
           </div>
 
           <div class="step-card">
               <div class="step-header">
-                  <div class="step-number">2</div>
-                  <div class="step-title">回らなかった動画（通常/失敗）との比較検証</div>
+                  <div class="step-number">Phase 2</div>
+                  <div class="step-title">チャンネル設計 (コンセプト・ペルソナ・TTP)</div>
               </div>
               <div class="step-content">
                   <strong>【概要】</strong><br>
-                  「異常値動画」だけを見ていても、何が真の成功要因かは分かりません。同じチャンネルの「回らなかった動画」と比較することで、「タイトル・サムネイル・冒頭の展開」における【ダメなパターン】を炙り出します。<br><br>
+                  ジャンルが決まったら、競合を徹底的にリサーチし、コンセプトとペルソナ（想定視聴者層）を設定します。ゼロから生み出さず、優れた競合の型を「TTP（徹底的にパクる）」することが重要です。<br><br>
                   <strong>【細かいやり方】</strong>
                   <ul>
-                      <li>本ページの「回らなかった動画一覧」の字幕を開きます。</li>
-                      <li>異常値の動画と見比べ、「テンポが遅いか？」「主人公への共感が薄いか？」「サムネイルの文字が弱いか？」等の違いを仮説立てます。</li>
-                      <li>AIに両方のテキストを投げ、「なぜAは成功して、Bは失敗したのか、違いを抽出して」と頼むと効率的です。</li>
+                      <li><b>モデリングチャンネル</b>（自チャンネルの理想像。複数チャンネルのいいとこ取りをする）、<b>ベンチマークチャンネル</b>（動向チェック用アンテナ。10ch以上）、<b>ネタ元チャンネル</b>の3つを設定します。</li>
+                      <li>ライバルの「サムネの配色」「タイトルコール」「冒頭30秒のフック」を分析し、共通の「型」を作り出します。</li>
                   </ul>
+                  <div class="ayp-diagram">
+【TTPの正しい理解・守破離】
+⭕ OK（リメイク）:
+ ・構図を真似る
+ ・話の「構造・流れ」を参考にする
+ ・同じテーマで別の文章を書きおろす
+
+❌ NG（ただのリライト・盗用）:
+ ・シナリオを丸々コピーする
+ ・語尾だけ、登場人物の名前だけを変える
+                  </div>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> サムネイルのコンセプトをコロコロ変えないこと。また、大企業のチャンネルをネタ元にせず、必ず「登録者2000人以下でも異常に伸びている動画」をネタ元にしてください。
+                  </div>
+                  <div>
+                    <a href="https://vimeo.com/1111203364" target="_blank" class="vimeo-link">▶ 動画解説: チャンネル設計とTTPについて</a>
+                    <a href="https://vimeo.com/1125080145" target="_blank" class="vimeo-link">▶ 動画解説: ペルソナ設定の実践</a>
+                  </div>
               </div>
           </div>
 
           <div class="step-card">
               <div class="step-header">
-                  <div class="step-number">3</div>
-                  <div class="step-title">テーマ・企画の決定（勝ち馬に乗る）</div>
+                  <div class="step-number">Phase 3</div>
+                  <div class="step-title">チャンネルの作成と初期設定</div>
               </div>
               <div class="step-content">
                   <strong>【概要】</strong><br>
-                  一からのオリジナル企画は作らず、ステップ1・2で見つけた「証明済みのコンセプト（例：年金月〇万、熟年離婚、冷たい家族へのスカッと）」をベースに企画を決めます。視聴者の痛みに最も寄り添うテーマを選定します。<br><br>
+                  YouTube上でチャンネルの箱を作成し、動画投稿前の土台・仕組化を完成させます。<br><br>
                   <strong>【細かいやり方】</strong>
                   <ul>
-                      <li>異常値のタイトルから、特に反応の良い「パワーワード（例: 寄生虫、孤独死、底辺）」を抽出します。</li>
-                      <li>それを組み合わせて新しいタイトル案とサムネイル案から先に作ります（5Dの原則）。</li>
-                      <li>サムネイルとタイトルが完成し、面白いと思えたら台本の制作に進みます。</li>
+                      <li>必ず<b>ブランドアカウント</b>でチャンネルを作成します。</li>
+                      <li>チャンネルの基本情報（概要欄）、キーワードタグ、詳細設定（国など）、コミュニティの管理などを済ませます。</li>
                   </ul>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> 将来的な『売却（イグジット）』を常に視野に入れるため、個人のGoogleアカウントに紐づく「個人アカウント」ではなく、必ず譲渡可能な「ブランドアカウント」で作成してください。
+                  </div>
+                  <div>
+                    <a href="https://vimeo.com/1134096621" target="_blank" class="vimeo-link">▶ 動画解説: 初期設定（機能の利用資格・電話番号認証など）</a>
+                    <a href="https://vimeo.com/1134096519" target="_blank" class="vimeo-link">▶ 動画解説: アップロードデフォルト設定と基本情報</a>
+                  </div>
               </div>
           </div>
 
           <div class="step-card">
               <div class="step-header">
-                  <div class="step-number">4</div>
-                  <div class="step-title">プロット作成 ＆ 台本ジェネレート（AI）</div>
+                  <div class="step-number">Phase 4</div>
+                  <div class="step-title">企画制作（タイトル・サムネイル・ネタ探し）</div>
               </div>
               <div class="step-content">
                   <strong>【概要】</strong><br>
-                  ストックした構成の「型」と「テーマ」をAI（Gemini/Claude）に投入し、台本の下書きを生成します。その後、人間が「シニア特有の生々しい感情」や「スカッと感」のトーン調整を行います。<br><br>
+                  動画の方向性を決定します。一番の近道は、ライバルの「バズり動画（直近で登録者の3倍以上再生された動画）」をネタ元にして、タイトルとサムネイルを【一番最初】に決めることです。<br><br>
                   <strong>【細かいやり方】</strong>
                   <ul>
-                      <li>AIへのプロンプト例：「あなたは60代のシニア向けYouTubeの台本作家です。以下の構成（起承転結）とテーマ『〇〇』に従い、一人称視点の朗読劇となる5,000文字の台本を作成してください。」</li>
-                      <li>AIの出力をそのまま使わず、「人間味のある言い回し」「理不尽な悪役のセリフの強化」などを手直しします。</li>
+                      <li>本ページの「バズ動画一覧」から異常値を特定します。</li>
+                      <li>タイトルとサムネ案をセットで作成し、自分が「おもしろそう、クリックしたい」と思える状態までブラッシュアップします。</li>
+                      <li><b>YouTube SEO</b>を意識し、左側に重要なキーワードを配置します。</li>
                   </ul>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> 企画の優先順位は「①自分のチャンネルで直近バズった動画の要素」＞「②過去のバズ動画」＞「③ライバルの異常値動画」の順です。また、台本を作ってからサムネを考えるのではなく、<b>必ず【企画・サムネ・タイトル】を先に完成させてから、台本を書いてください。</b>
+                  </div>
+                  <div>
+                    <a href="https://vimeo.com/1110873879" target="_blank" class="vimeo-link">▶ 動画解説: 企画のネタ元（直近バズった動画から）</a>
+                    <a href="https://vimeo.com/930173794" target="_blank" class="vimeo-link">▶ 動画解説: タイトル設定とYouTube SEO</a>
+                  </div>
               </div>
           </div>
 
           <div class="step-card">
               <div class="step-header">
-                  <div class="step-number">5</div>
-                  <div class="step-title">音声化・動画編集・収益化対策を施して公開</div>
+                  <div class="step-number">Phase 5</div>
+                  <div class="step-title">シナリオ・動画の制作 ＆ 投稿</div>
               </div>
               <div class="step-content">
                   <strong>【概要】</strong><br>
-                  生成した台本を音声化（TTS等）し、動画に差し込みます。YouTubeの「再利用されたコンテンツ（スパム）」判定を回避するため、単なる静止画ではなく、独自の動きや付加価値をつける必要があります。<br><br>
+                  決まった企画をもとに、AI（Claude推奨）を利用してシナリオを執筆し、Vrewなどのソフトで動画化して投稿します。<br><br>
                   <strong>【細かいやり方】</strong>
                   <ul>
-                      <li>AI音声（VOICEPEAK、VoiceVox、あるいはQwen3-TTSなど）を使用して朗読化します。</li>
-                      <li>動画編集では、背景に動画素材（Pexelsなど）を使い、テキストがスクロールするなどの動きをつけます。</li>
-                      <li>ワイプ（実写のフリー素材がうなずいている映像）などを画面角に入れると、独自性が担保されやすくなります（※詳しくはTipsタブ参照）。</li>
-                      <li>完成後、クリック率（CTR）と視聴維持率を計測し、ステップ1からのサイクルを回し続けます。</li>
+                      <li>AIにプロンプトを投げて骨組みと本文を作成します（一発で出さず、ステップを踏んで長文を作らせるのがコツです）。</li>
+                      <li>生成された文章に人間味や感情を入れる「リライト作業」を必ず行います。</li>
+                      <li>Vrewに読み込ませて、文字起こし・ナレーション（TTS）・テロップ・背景動画の設定を行います。</li>
+                      <li>YouTubeに動画をアップロードし、終了画面と再生リストの設定を行います。</li>
                   </ul>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> AIは完璧ではありません。出力された文章をそのまま使うと、視聴者に「冷たい・AIっぽい」と離脱されます。最後は必ず人間の手を入れてください。120点の動画を求めるあまり投稿が遅れるより、<b>7割の完成度でいいので早く公開する</b>ことが重要です。
+                  </div>
+                  <div>
+                    <a href="https://vimeo.com/1125073178" target="_blank" class="vimeo-link">▶ 動画解説: Vrewの基本的な使い方</a>
+                    <a href="https://vimeo.com/1131940462" target="_blank" class="vimeo-link">▶ 動画解説: Vrewでの文字起こし</a>
+                    <a href="https://vimeo.com/1131940442" target="_blank" class="vimeo-link">▶ 動画解説: Vrewでのナレーション（音声設定）</a>
+                    <a href="https://vimeo.com/1131940418" target="_blank" class="vimeo-link">▶ 動画解説: Vrewでのテロップ調整</a>
+                  </div>
               </div>
           </div>
+          
       </div>
     </div>
     
@@ -49497,37 +49583,28 @@ niet量知らず手に入れた財産に
           <div class="tips-grid">
               <div class="tip-card">
                   <div class="tip-icon">🛡️</div>
-                  <div class="tip-title">収益化剥奪（再利用コンテンツ）対策</div>
+                  <div class="tip-title">収益化剥奪（垢BAN）対策（超重要）</div>
                   <div class="tip-desc">
-                    YouTubeは「AIによる大量生産の紙芝居動画」を嫌います。<br>
-                    <strong>対策:</strong> 単なる静止画ではなく動画素材を背景に使う、テキストにエフェクトをつける、可能ならAIアバター等の「動く人物のワイプ（PiP）」を配置して、編集の手間と独自性をアピールしてください。
+                    YouTubeは「AIによる大量生産動画」を嫌い、収益化を剥奪します。<br>
+                    <strong>対策:</strong> 毎日投稿は剥奪率44.8%と高いため「2日に1本」にとどめる。「静止画のみ」の動画もNG率が高い（74.2%）。必ずPiP（ピクチャー・イン・ピクチャー。ワイプなど）を入れて、独自性をアピールしてください。
                   </div>
               </div>
 
               <div class="tip-card">
                   <div class="tip-icon">🖼️</div>
-                  <div class="tip-title">極太・高コントラストなサムネイル法則</div>
+                  <div class="tip-title">サムネイルの統一感</div>
                   <div class="tip-desc">
-                    シニア層はスマホやタブレットで見るため、「とにかく文字を大きく・太く」が鉄則です。<br>
-                    <strong>対策:</strong> 「赤×黄×黒」など高コントラストな配色を使用し、文字は3〜10文字程度の強烈なパワーワード（修羅場、底辺、悲劇など）に絞り込んでください。
+                    毎回バラバラなデザインは、チャンネルのブランド・信頼性を落とします。<br>
+                    <strong>対策:</strong> 「赤×黄×黒」など高コントラストな配色を一度決めたら徹底し、変更する場合は「ミニマムアップデート」にとどめること。
                   </div>
               </div>
 
               <div class="tip-card">
-                  <div class="tip-icon">🎣</div>
-                  <div class="tip-title">冒頭30秒で勝負を決めるフック設計</div>
-                  <div class="tip-desc">
-                    動画の視聴維持率は最初の30秒で決まります。前置きの挨拶は不要です。<br>
-                    <strong>対策:</strong> 開始1秒で「主人公が絶望的な状況にいる最も興味を引くセリフ」から始めてください（イン・メディアス・レスの手法）。「あの時、私は…」という回想から入るのが鉄板です。
-                  </div>
-              </div>
-              
-              <div class="tip-card">
                   <div class="tip-icon">🤬</div>
-                  <div class="tip-title">共感をブーストさせる「憎まれ役」の作り方</div>
+                  <div class="tip-title">バズる企画＝強力なコンセプト</div>
                   <div class="tip-desc">
                     スカッと系の満足度は、悪役（義母や夫）がいかに理不尽で憎たらしいかに依存します。<br>
-                    <strong>対策:</strong> 悪役のセリフに「現代の格差社会」や「世代間のすれ違い」を象徴する生々しいイヤミを言わせてください（例：「お前の年金じゃカップ麺も買えないだろ」など）。
+                    <strong>対策:</strong> 視聴者のペルソナ（想定読者の60代男性等）が最も腹を立てる、生々しいイヤミ（年金問題や格差社会への偏見）を取り入れることで、圧倒的な共感を生みます。
                   </div>
               </div>
           </div>
