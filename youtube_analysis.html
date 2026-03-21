@@ -194,6 +194,16 @@
     white-space: pre-wrap;
     line-height: 1.4;
   }
+  .system-message {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid #38bdf8;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #e0f2fe;
+    line-height: 1.6;
+  }
   
   /* Tips Container */
   .tips-grid {
@@ -409,7 +419,7 @@
     border-radius: 8px;
     padding: 16px;
     font-size: 14px;
-    color: var(--text-dim);
+    color: var(--gold);
     line-height: 1.8;
   }
   
@@ -458,7 +468,7 @@
     </div>
     
     <div class="tabs">
-      <button class="tab-item active" onclick="switchTab('workflow')">🗺️ 講座：チャンネル構築の進め方</button>
+      <button class="tab-item active" onclick="switchTab('workflow')">🗺️ 講座：チャンネル構築・運営の進め方</button>
       <button class="tab-item" onclick="switchTab('anomaly')">📈 異常値（バズ）動画一覧</button>
       <button class="tab-item" onclick="switchTab('normal')">📉 回らなかった動画（比較用）</button>
       <button class="tab-item" onclick="switchTab('tips')">💡 制作Tips・ノウハウ集</button>
@@ -467,9 +477,15 @@
     <!-- タブ１：講座の進め方 -->
     <div id="tab-workflow" class="tab-content active">
       <div class="workflow-container">
+          <div class="system-message">
+            <strong>⚠️ Vimeo動画リンクについて</strong><br>
+            AYPの講座動画は、プライバシー設定で「ayp.commmune.com」以外のサイトでの再生がブロックされているため、直リンク（vimeo.com）ではエラーになります。<br>
+            必ず以下の <b>AYP公式（Commmune）のモジュールリンク</b> からアクセスし、ログインして動画を視聴してください。
+          </div>
+          
           <div class="section-title" style="margin-top: 0;">🚀 YouTube運営 完全マニュアル (AYPベース)</div>
           <p style="color:var(--text-dim); font-size:14px; margin-bottom: 32px; line-height: 1.6;">
-            AYP（YouTube講座）の正規カリキュラムとマニュアルに基づく「ゼロからチャンネルを作るステップ」です。各ステップの詳細や画面の操作方法は、必ずリンク先のVimeo動画を確認してください。
+            AYP（YouTube講座）の正規カリキュラムとマニュアルに基づく「ゼロからチャンネルを作り、売却するまでの8ステップ」です。
           </p>
 
           <div class="step-card">
@@ -489,8 +505,7 @@
                     ⚠️ <b>注意ポイント:</b> 「楽しい ≠ 楽（らく）」です。嫌なジャンルだと心理的負担で続かないので、少しでも興味を持てるものを選びましょう。また、登録者が何万人もいる大きなチャンネルが安定して視聴されているからといって参入可能とは限りません。必ず「新規チャンネルが伸びているか」で判断します。
                   </div>
                   <div>
-                    <a href="https://vimeo.com/930545601" target="_blank" class="vimeo-link">▶ 動画解説: ジャンル選定をはじめる前に</a>
-                    <a href="https://vimeo.com/1128759325" target="_blank" class="vimeo-link">▶ 動画解説: 再生されているジャンルかどうか（基準の確認）</a>
+                    <a href="https://ayp.commmune.com/view/training/4212" target="_blank" class="vimeo-link">▶ AYP公式動画（Phase 1~5）を見る</a>
                   </div>
               </div>
           </div>
@@ -522,10 +537,6 @@
                   <div class="ayp-note">
                     ⚠️ <b>注意ポイント:</b> サムネイルのコンセプトをコロコロ変えないこと。また、大企業のチャンネルをネタ元にせず、必ず「登録者2000人以下でも異常に伸びている動画」をネタ元にしてください。
                   </div>
-                  <div>
-                    <a href="https://vimeo.com/1111203364" target="_blank" class="vimeo-link">▶ 動画解説: チャンネル設計とTTPについて</a>
-                    <a href="https://vimeo.com/1125080145" target="_blank" class="vimeo-link">▶ 動画解説: ペルソナ設定の実践</a>
-                  </div>
               </div>
           </div>
 
@@ -544,10 +555,6 @@
                   </ul>
                   <div class="ayp-note">
                     ⚠️ <b>注意ポイント:</b> 将来的な『売却（イグジット）』を常に視野に入れるため、個人のGoogleアカウントに紐づく「個人アカウント」ではなく、必ず譲渡可能な「ブランドアカウント」で作成してください。
-                  </div>
-                  <div>
-                    <a href="https://vimeo.com/1134096621" target="_blank" class="vimeo-link">▶ 動画解説: 初期設定（機能の利用資格・電話番号認証など）</a>
-                    <a href="https://vimeo.com/1134096519" target="_blank" class="vimeo-link">▶ 動画解説: アップロードデフォルト設定と基本情報</a>
                   </div>
               </div>
           </div>
@@ -568,10 +575,6 @@
                   </ul>
                   <div class="ayp-note">
                     ⚠️ <b>注意ポイント:</b> 企画の優先順位は「①自分のチャンネルで直近バズった動画の要素」＞「②過去のバズ動画」＞「③ライバルの異常値動画」の順です。また、台本を作ってからサムネを考えるのではなく、<b>必ず【企画・サムネ・タイトル】を先に完成させてから、台本を書いてください。</b>
-                  </div>
-                  <div>
-                    <a href="https://vimeo.com/1110873879" target="_blank" class="vimeo-link">▶ 動画解説: 企画のネタ元（直近バズった動画から）</a>
-                    <a href="https://vimeo.com/930173794" target="_blank" class="vimeo-link">▶ 動画解説: タイトル設定とYouTube SEO</a>
                   </div>
               </div>
           </div>
@@ -594,15 +597,75 @@
                   <div class="ayp-note">
                     ⚠️ <b>注意ポイント:</b> AIは完璧ではありません。出力された文章をそのまま使うと、視聴者に「冷たい・AIっぽい」と離脱されます。最後は必ず人間の手を入れてください。120点の動画を求めるあまり投稿が遅れるより、<b>7割の完成度でいいので早く公開する</b>ことが重要です。
                   </div>
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">Phase 6</div>
+                  <div class="step-title">運営の仕組化</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  投稿作業が軌道に乗ったら、無駄な手作業を排除しスプレッドシートやマニュアルを駆使して「仕組化」します。分析やリサーチに時間を投資できるようにします。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>毎回手作業でやっていることをマニュアル化し、チェックリストを作ります。</li>
+                      <li>スプレッドシート（AYP提供のチャンネル管理シート等）を活用し、業務を一元管理します。</li>
+                  </ul>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> この仕組化ができているかどうかが、Phase 8の「チャンネル売却」時に大きなセールスポイント（高値売却の要素）になります。属人化を排除してください。
+                  </div>
                   <div>
-                    <a href="https://vimeo.com/1125073178" target="_blank" class="vimeo-link">▶ 動画解説: Vrewの基本的な使い方</a>
-                    <a href="https://vimeo.com/1131940462" target="_blank" class="vimeo-link">▶ 動画解説: Vrewでの文字起こし</a>
-                    <a href="https://vimeo.com/1131940442" target="_blank" class="vimeo-link">▶ 動画解説: Vrewでのナレーション（音声設定）</a>
-                    <a href="https://vimeo.com/1131940418" target="_blank" class="vimeo-link">▶ 動画解説: Vrewでのテロップ調整</a>
+                    <a href="https://ayp.commmune.com/view/training/2894" target="_blank" class="vimeo-link">▶ AYP公式動画（Phase 6 運営の仕組化）を見る</a>
                   </div>
               </div>
           </div>
-          
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">Phase 7</div>
+                  <div class="step-title">外注化</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  仕組化が完了後、自分がいなくても動画が回るよう、外注の採用・教育・報酬管理の体制を整えます。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>クラウドワークス等で募集し、トライアルを経て採用基準を満たした人をディレクターとして育成します。</li>
+                      <li>採用後はチャットワークへ誘導し、最初の1週間で「マインドセット（自責思考・相手目線）」を徹底教育します。</li>
+                  </ul>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> 「採用すればすぐにラクになる」わけではありません。プロ意識を持たせるための教育こそが必須です。また、損切り基準を明確にし、基準に満たない外注先には早めに切る判断力も必要です。
+                  </div>
+                  <div>
+                    <a href="https://ayp.commmune.com/view/training/2309" target="_blank" class="vimeo-link">▶ AYP公式動画（Phase 7 外注化）を見る</a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">Phase 8</div>
+                  <div class="step-title">チャンネル売却 (Exit)</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  最終ゴールであるイグジット（売却）の手続きになります。プラットフォーム選定から譲渡作業までを行います。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>ブランドアカウントが譲渡可能か確認し、手順書や外注体制を引き渡す準備をします。</li>
+                      <li>適正な「売却価格」を設定し、買主となるオーナーへメインオーナー権限を付与・アドセンスを変更します。</li>
+                  </ul>
+                  <div class="ayp-note">
+                    ⚠️ <b>注意ポイント:</b> 売れるチャンネルの絶対条件は、「ブランドアカウントであること」「マニュアルが完備され仕組み化されていること」「安定収益があること」です。
+                  </div>
+                  <div>
+                    <a href="https://ayp.commmune.com/view/training/2895" target="_blank" class="vimeo-link">▶ AYP公式動画（Phase 8 チャンネル売却）を見る</a>
+                  </div>
+              </div>
+          </div>
+
       </div>
     </div>
     
@@ -627,8 +690,8 @@
                     <div class="card-title-row">「中卒ですが…」現れたのはIQ200の天才少女。倒産寸前の造船所で1ヶ月後に起きた奇跡！【感動する話】【朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：字幕データが取得できていません。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        字幕データが取得できていません。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -650,11 +713,11 @@
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -678,8 +741,8 @@
                     <div class="card-title-row">60歳過ぎたら使わないと損！人生が倍楽しくなる『魔法のシニア割』5選。映画も旅行もこんなにお得</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：字幕データが取得できていません。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        字幕データが取得できていません。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -701,11 +764,11 @@
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -729,8 +792,8 @@
                     <div class="card-title-row">「なぜか頼られる」60代で突然近づいてきた女性。その優しさが老後資金を削っていった理由【シニア朗読雑学】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：字幕データが取得できていません。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        字幕データが取得できていません。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -752,11 +815,11 @@
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -780,8 +843,8 @@
                     <div class="card-title-row">年金月8万円。「お金がない」と嘆くのをやめたら、なぜか貯金が増え始めた68歳女性の「魔法の習慣」5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：長気なんてするもんじゃないわね。ふと 1人暮らしの部屋でそんな独り言を呟いて しまったことはありませんか?テレビを...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        シニア層が抱える「年金8万円では生きていけない」という普遍的な経済的苦悩を提示し、同じ年金で豊かに暮らす対照的な人物の存...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -803,11 +866,11 @@
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - シニア層が抱える「年金8万円では生きていけない」という普遍的な経済的苦悩を提示し、同じ年金で豊かに暮らす対照的な人物の存在を示唆することで、その秘密と解決策への期待感を惹きつけています。</p>
+                <p><strong>【物語モデル】</strong> - 年金8万円で貧しい暮らしを送り、貯金も底が見え精神的に疲弊している主人公（よし子）が、同じ年金8万円ながら心身ともに豊かに暮らす高校時代の同級生（さち子）と再会します。さち子は「お金がなくても幸せになれる技術」として『お金が逃げない5つの習慣』（ノーマネーデー、コンビニ遮断、見栄の交際費ゼロ、健康投資、あるものに感謝）を伝授。よし子はそれらを実践し、最初は不安ながらも小さな成功体験を重ね、1ヶ月で家計が黒字化。半年後には貯金も増え、経済的だけでなく精神的な豊かさも手に入れ、「今が一番幸せ」と心の余裕を取り戻す大逆転のスカッと展開です。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層が直面する『年金8万円』『老後2000万円問題』といった具体的な経済的不安に深く寄り添い、共感を呼ぶことに成功しています。経済的に困窮する主人公と、同じ境遇ながら豊かに暮らす友人の『対立構造』が明確で、視聴者は主人公に自分を重ねつつ、友人の『秘訣』に強い関心と期待を抱きます。単なる節約術ではなく、心の持ち方や習慣の改善を通して、経済的困窮から心の豊かさを取り戻す物語は、『自分にもできるかも』という希望と、精神的な『スカッと感』を提供し、シニア層に強く受け入れられたと考えられます。具体的な行動指針が提示されることで、動画のエンターテイメント性だけでなく実用性も高め、視聴者の満足度を向上させています。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -1167,8 +1230,8 @@
                     <div class="card-title-row">「その言葉、嫌われてますよ」60代が気づかず使っている、人が離れる「危険な口癖」5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：ふと気づくと最近誰からも連絡が来ない。 久しぶりにあった友人の態度がなんだか 以前より愛そがない。家族との会話がいつ...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        ふと気づくと最近誰からも連絡が来ない。 久しぶりにあった友人の態度がなんだか 以前より愛そがない。家族との会話がいつ...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -1190,11 +1253,11 @@
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -1543,8 +1606,8 @@
                     <div class="card-title-row">【漫画】※老後の罠※ 年金額でこれだけ違う兄弟の末路…平均14万円の現実と「タワマン・持ち家」に潜む残酷な落とし穴.</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：俺の名前は高橋た尾夫尾。67歳。都内の 中堅会社で営業部長として定年まで 務め上げた。現役時代のピーク時の年収は...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        主人公が定年退職後に中流階級のプライドと漠然とした安心感を抱いていたが、実際に振り込まれた年金（14.5万円）の少なさに...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -1566,11 +1629,11 @@
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 主人公が定年退職後に中流階級のプライドと漠然とした安心感を抱いていたが、実際に振り込まれた年金（14.5万円）の少なさに直面し、生活の困窮ぶり（半額惣菜で食いつなぐ日々）をリアルに語ることで、視聴者に「自分もそうなるのか」という危機感と共感を抱かせ、強く引き込む。</p>
+                <p><strong>【物語モデル】</strong> - 導入として、主人公（元営業部長、年金14.5万円）が年金だけでは生活できない苦境に陥る。母の13回忌を機に集まった兄弟（長男：国民年金5.5万円のフリーター、妹：持ち家持ち、末っ子：年金28万円の外資系役員）それぞれの老後が描かれる。最も貧しいと思われた長男は、プライドを捨て固定費を極限まで削減し、最も自由で幸せに暮らしていることが判明。一方、持ち家のある妹は高額な修繕費と固定資産税に苦しみ、裕福な末っ子は高いタワマン維持費と現役時代のプライドを捨てきれず、自己破産寸前であることが明らかになる。これらの対照的な現実を通じて、主人公は「お金の多寡ではなく、プライドと固定費が老後の苦しみの本質」であると悟り、自身の常識を打ち破る。最終的に、主人公は長男の「仕組みの節約」を見習い、都心のマンションを引き払い、郊外の安いアパートへ引っ越すことを決意し、無駄な固定費を削減。この行動により、心穏やかで自由に使えるお金が増え、真の安心と自由を手に入れるスカッと展開で結ばれる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、多くのシニア層が抱える「老後のお金」への切実な不安を代弁する冒頭のフックが秀逸で、強い共感と危機感を呼び起こしたと推測される。特に「年金14.5万円」という具体的な数字と生活苦の描写は、視聴者自身の状況と重ね合わせやすく、感情移入を促す。物語は「お金の多寡＝幸福」という一般的な常識と、兄弟たちの現実（長男の貧乏な自由、妹の持ち家の呪縛、末っ子の高収入による破産危機）という対立構造を明確に提示し、「真の豊かさとは何か」というシニア層が定年後に直面する本質的な問いを投げかける。最終的に主人公が「プライド」という見えない重りを捨て、固定費を削減することで「仕組みの節約」を実践し、精神的な自由と安心を得る結末は、視聴者に具体的な解決策と「自分も変われる」という希望を与える強力なカタルシスとなる。単なる苦境の羅列で終わらず、行動変容とポジティブな未来を提示することで、視聴者に強い納得感とスカッと感を提供し、高く評価されただろう。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -2160,8 +2223,8 @@ Sで月に1000円ちょっと。食事は完全
                     <div class="card-title-row">60代で孤独を楽しむ 「最高のひとり時間」の過ごし方5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あなたはふと1人になった時こんな風に 思っていませんか?誰も話し相手がいなく て寂しい。1人で出かけるなんて友達がい...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        「あなたはふと1人になった時こんな風に思っていませんか?」とシニア層が抱えがちな孤独感や将来への不安を直接問いかけ、共感...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -2183,11 +2246,11 @@ Sで月に1000円ちょっと。食事は完全
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 「あなたはふと1人になった時こんな風に思っていませんか?」とシニア層が抱えがちな孤独感や将来への不安を直接問いかけ、共感を誘うことで視聴者自身の問題として引きつけ、孤独の捉え方を変えれば人生が好転するという希望と、具体的な物語の予告で期待感を高めている。</p>
+                <p><strong>【物語モデル】</strong> - 孤独と寂しさに沈む63歳の専業主婦・田村京子が、夫や子に囲まれながらも心は満たされず、「このまま誰からも必要とされずに終わるのか」という虚無感を抱いている。ある日、カフェで一人優雅に過ごす同年代の女性を目撃したことをきっかけに「自分も変わりたい、自分で自分を楽しませたい」と決意する。その後、「ホテルラウンジで1人カフェ」「朝活カフェ」「スマホ写真散歩」「ご朱印集め」「1000円で大冒険電車の旅」という5つのソロ活に挑戦し、それぞれで自分を大切にする時間、日常の再発見、目的意識、好奇心を取り戻していく。最終的には「私の人生は私が楽しませることができる」という揺るぎない自信と精神的な自立を獲得し、夫からの誘いを笑顔で断って自分の時間を優先できるほどに人生を輝かせ、「孤独だと思っていた時間が最高の贅沢な1人時間」へと変容する自己肯定感向上型のスカッと展開である。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、定年退職や子育て終了後のシニア女性が抱えがちな「孤独感」「寂しさ」「喪失感」という内面的な悩みを的確に捉え、視聴者の共感を強く引き出している。対立構造は、他者依存や世間体を気にする「過去の自分」と、精神的に自立し自分の幸福を追求する「現在の自分」という形で描かれ、主人公の内面的な成長と自己肯定感の獲得が「スカッと」感の核心となっている。漠然とした精神論ではなく、実践可能な5つの「ソロ活」という具体的な解決策が提示されているため、視聴者は「自分もやってみよう」という行動意欲を掻き立てられる。直接的な「大逆転」や「復讐」ではなく、自力で人生を豊かにしていく穏やかなポジティブな変化は、争いを好まないシニア層の価値観に合致し、多くの共感と支持を得たと考えられる。孤独を「ロンリネス」ではなく「ソリチュード」と捉え直すメッセージも、深い示唆を与え、人生の後半を前向きに生きる指針となっている。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -2495,8 +2558,8 @@ Sで月に1000円ちょっと。食事は完全
                     <div class="card-title-row">60代から嫌でも金持ちになる。TVで紹介された「5つの魔法の習慣」が凄すぎた</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あなたは毎月通帳の残高を見てため息を ついていませんか?年金が少ないから 仕方ない。節約しているつもりなのになぜ...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        動画冒頭で、年金が少なく老後破綻への漠然とした不安を抱えるシニア層の悩みを直接的に問いかけ、その悩みが日常の口癖や行動に...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -2518,11 +2581,11 @@ Sで月に1000円ちょっと。食事は完全
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 動画冒頭で、年金が少なく老後破綻への漠然とした不安を抱えるシニア層の悩みを直接的に問いかけ、その悩みが日常の口癖や行動に起因すると示唆。続けて、過去に破産寸前まで追い込まれた68歳女性がテレビ番組をきっかけに人生を逆転させた物語と、視聴者が「お金に好かれる5つの魔法の習慣」を学べるという具体的な解決策と希望を提示することで、強い関心を引きつける。</p>
+                <p><strong>【物語モデル】</strong> - 夫亡き後、年金生活で過去の生活水準と見栄のために貯金を食いつぶし、老後破綻の危機に瀕する68歳の佐藤よし子が主人公。友人との高級ランチや孫への見栄のために散財し、自己嫌悪と不安から衝動買いを繰り返す悪循環に陥っていた。偶然テレビで見た「年金月5万円でも幸せ」な80代女性の質素だが豊かな暮らしと「5つの習慣」に触発され、半信半疑ながらもそれらを実践する。具体的には、年金を日割りで封筒管理する「封筒分けゲーム」、自宅で非日常を演出する「お家で極上を演出」、低コストで冒険気分を味わう「1000円バスの旅」、衝動買いを防ぐ「1週間保留ルール」、そして感謝を記録する「感謝の家計簿」を実行。これらの習慣を通じて、金銭的な余裕が生まれ、最終的には物質的な豊かさではなく「樽を知り、今あるもので幸せを感じられる心」こそが真の豊かさであると悟り、不安のない前向きなシニアライフを送るようになる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、年金生活を送るシニア層が抱えがちな「お金の不安」「老後破綻への恐怖」、そして「見栄による浪費」という現実的な問題設定が、視聴者の強い共感を呼ぶ。対立構造としては、主人公よし子の「不安と見栄に基づく浪費」と「質素だが精神的に豊かな暮らしを実践する80代女性」の生き方、そして「物質的豊かさ＝幸せ」という一般的な価値観と「心の豊かさ＝真の幸せ」というメッセージがぶつかり合う。スカッと要素は、主人公が具体的な5つの習慣を実践することで、金銭的な不安から解放され、見栄を張る必要もなくなり、精神的な充足感と穏やかな日々を手に入れる点にある。特に、「無理なく、今日からできる」という手軽な改善策が提示されることで、行動へのハードルが下がり、視聴者は「自分にもできるかもしれない」という希望と、人生を好転させることができた主人公への共感から、大きな満足感と爽快感を得られると考える。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -2926,8 +2989,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">【漫画】退職金3500万で糟糠の妻を捨て、29歳女とタワマンに住んだ65歳男の末路。妻の「命のノート」を捨てた男に下された残酷な天罰…【因果応報】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：蒸せ替えるようなカの匂いがする余上半の フルアパート。 万年に横たわる1人の男秀明68歳。彼の...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        蒸せ替えるようなカの匂いがする余上半の フルアパート。 万年に横たわる1人の男秀明68歳。彼の...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -2949,11 +3012,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -3467,8 +3530,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">年金月8万円でも困らない？食費月1万円の「節約の習慣」7選。お金を使わない幸せの法則。</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：年金8万円で一体どうやって暮らせという の? あなたは今止まらない物価高と減り続ける...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        年金8万円で一体どうやって暮らせという の? あなたは今止まらない物価高と減り続ける...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -3490,11 +3553,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -3814,8 +3877,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">【シニア恋愛】52歳の泌尿器科医、患者との思わぬエピソード...| 黄昏恋愛 | 老後の知恵 | 感動ストーリー | オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：字幕データが取得できていません。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        字幕データが取得できていません。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -3837,11 +3900,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -3865,8 +3928,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">60代、節約をやめたら貯金が増えた。年金生活でもお金に困らない「魔法の習慣5選」</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あなたは今ご自身の通帳を見てこんな ため息をついていませんか? 節約しているつもりなのにどうしてお金が...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        あなたは今ご自身の通帳を見てこんな ため息をついていませんか? 節約しているつもりなのにどうしてお金が...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -3888,11 +3951,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -4205,8 +4268,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">愛される高齢者の共通点！「また会いたい」と思われる人の魔法の習慣</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あなたは最近こんな風に感じることはあり ませんか?昔に比べて友達から誘われる ことが減った気がする。誰かと話していて...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        視聴者が潜在的に抱える孤独感や人間関係の悩みに共感を示し、「年だからではない、行動に原因がある」と示唆することで自己変革...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -4228,11 +4291,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 視聴者が潜在的に抱える孤独感や人間関係の悩みに共感を示し、「年だからではない、行動に原因がある」と示唆することで自己変革の可能性を提示し、具体的な物語と得られる希望を予告して引き込んでいる。</p>
+                <p><strong>【物語モデル】</strong> - 主人公の田中洋子（68歳）が、友人からの誘いの減少や家族との会話の希薄化に悩み、孤独を感じる現状から物語が始まる。ある日、喫茶店で周りから慕われる先輩・大原さち子さん（73歳）と出会い、その魅力に惹かれる。洋子はさち子さんの行動を観察し、「聞き上手」「感謝の言葉」「清潔感と明るい色」「適度な距離感」「自分の機嫌は自分で取る」という5つの魔法の習慣に気づく。これらの習慣を洋子が夫や友人との関係で実践し始めると、夫との会話が弾み、友人との関係も改善し、新たな誘いが増えるといった具体的な変化が起こる。最終的に、洋子は「愛されるとは自分から周りを愛することだ」と気づき、充実した人生を手に入れる。物語は、変わるのに遅すぎることはないというメッセージと、5つの習慣の再提示、視聴者への行動喚起で締めくくられる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、多くのシニア層が抱える「孤独感」や「人から避けられている不安」（洋子の初期状態）と、「人に慕われ、笑顔で豊かな人間関係を築く人生」（さち子さんや変化後の洋子の状態）という対立構造を明確に描いている。具体的な「魔法の習慣」という実践しやすい解決策が提示されることで、「年だから仕方ない」と諦めがちなシニア層に「自分でも変われる」という希望と具体的な行動指針を与えている。直接的な復讐や逆転劇ではなく、自己変革による内面的な充実と人間関係の好転という「スカッと」は、共感を呼びやすく、シニア層にとって安心して受け入れられ、かつ自身の人生にポジティブな影響をもたらすと感じられただろう。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -4593,8 +4656,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">貧乏のフリをして祖父に勧められたお見合いに参加すると→俺を振った元カノに再会して…【馴れ初め】【感動する話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：字幕データが取得できていません。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        字幕データが取得できていません。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -4616,11 +4679,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -4644,8 +4707,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">【漫画】59歳で選んだ年金。月12万円で生きることになった男の静かな記録【老後のリアル】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：朝5時半。山本光一は目覚ましが鳴る前に 目を覚ました。年齢のせいか最近は眠りが 浅い。起き上がると膝にわずかな違和感が...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        朝5時半。山本光一は目覚ましが鳴る前に 目を覚ました。年齢のせいか最近は眠りが 浅い。起き上がると膝にわずかな違和感が...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -4667,11 +4730,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -5009,8 +5072,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">70代で後悔しても遅い。60代のうちに『絶対やっておくべきこと』5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：もっと早くやっておけばよかった。あなた はそう呟いてため息をつく70代を迎え たいですか?それともあの時動いておいて...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        もっと早くやっておけばよかった。あなた はそう呟いてため息をつく70代を迎え たいですか?それともあの時動いておいて...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -5032,11 +5095,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -5353,8 +5416,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">老後の「お金貸して」その一言が地獄の入り口。老後資金と安らかな生活を守り抜いた「魔法の断り方」5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：久しぶり。会いたかったわ。数十年ぶりに 再開した給む 連絡。定年後の寂しさを埋めてくれるはず...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        定年後の寂しさを狙う金銭トラブルという現実的な問題を提示し、シニア層が共感しやすい具体的なリスクと、それを回避する『魔法...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -5376,11 +5439,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 定年後の寂しさを狙う金銭トラブルという現実的な問題を提示し、シニア層が共感しやすい具体的なリスクと、それを回避する『魔法の断り方』という解決策で視聴者の関心を惹きつけている。</p>
+                <p><strong>【物語モデル】</strong> - 定年後の孤独を感じる主人公・み子が、40年ぶりに再会した裕福に見える親友・洋子に心を許す。しかし洋子は、夫の会社危機を装って主人公の老後資金200万円を要求する。主人公は、亡き夫の言葉を胸に葛藤しつつ、『お金がないと嘘をつく』『解約できない理由を作る』『架空の権力者に責任転嫁』『友情を盾に拒絶』『公的機関への誘導』という5つの魔法の断り方を駆使して洋子を撃退。最終的に洋子の金銭トラブルが浪費によるものと判明し、主人公は老後資金と心の平穏を守り、真の友情を見つけるスカッと展開。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層が抱える『孤独』と『金銭不安』というデリケートな問題を巧みに捉え、友人や親戚間の金銭トラブルという断りにくい状況での具体的な解決策（魔法の断り方）を提示しているため、非常に高い共感を呼んだだろう。信頼を裏切る悪友（洋子）の存在は、情に流されやすいシニア層に『自分も騙されるかもしれない』という危機感を与え、主人公が賢く対処し老後資金を守り抜く姿は、視聴者に安心感とカタルシス（スカッと感）を提供した。最終的に悪人が自滅し、主人公が新たな良き人間関係を見つける結末は、単なるトラブル解決に留まらず、人生の教訓としてポジティブなメッセージを伝えている。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -5709,8 +5772,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">亡き姉の息子たちを連れて子供服を買いに来た俺...偶然いつも冷静な同僚の女性に会った結果...【馴れ初め】【感動する話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：子供たちは施設に預けましょう。それぞれ みんなの生活もあるしね。葬儀が終わった 直後。親戚たちはそう言った。まだ幼い...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        葬儀直後、幼い子供たちの前で親戚が「施設に預けろ」と理不尽な要求をする場面から始まり、主人公が感情的に反発し子供たちを守...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -5732,11 +5795,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 葬儀直後、幼い子供たちの前で親戚が「施設に預けろ」と理不尽な要求をする場面から始まり、主人公が感情的に反発し子供たちを守る決意を表明することで、視聴者の怒りと共感を一瞬で引きつける。</p>
+                <p><strong>【物語モデル】</strong> - 物語は、主人公の姉の葬儀直後、親戚が幼い双子を施設に預けようと迫る理不尽な状況から始まる。主人公は激怒し、自分が責任を持って双子を育てると宣言する。その後、主人公の貧しい生い立ち（両親不在、祖母と姉に育てられた過去）が語られ、姉が事故で他界した後に双子を一人で育てる苦労（仕事と家事・育児の両立、夜泣き対応など）が具体的に描かれる。転換点として、会社の経理課長リサとの子供のいたずらをきっかけにした出会いがあり、最初は苦手意識があったリサが、自身の不妊による離婚という過去を明かすことで、主人公との間に共感が生まれる。リサは双子の髪の毛事件で助けてくれたり、子供たちと交流を深めたりする中で、優しさと温かさをみせる。主人公はリサへの愛情を自覚し、不妊というリサの過去を受け入れた上で結婚を前提とした交際を申し込む。結婚後、不妊に悩んできたリサの妊娠が判明し、長年の苦労と悲しみを乗り越え、新しい命の誕生という「奇跡」と「希望」が家族にもたらされる。最終的に、主人公は愛する妻と、双子、そして生まれてくる新しい命と共に幸せな家庭を築き、「苦労の先にいいことがある」という祖母の言葉を実感する大団円を迎える。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層が重視する「家族の絆」「自己犠牲」「困難からの再生」「努力の報われ」といった普遍的な価値観を強く描いているため、非常に受け入れられやすい。対立構造としては、まず主人公の甥を施設に預けようとする無責任で冷酷な親戚と、愛情深く甥を引き取る主人公の「義理人情」が鮮明に対比される。この理不尽な親戚に対する主人公の毅然とした態度は、シニア層が抱く「弱者を守る正義」や「世の中の理不尽への憤り」と共鳴し、視聴者の共感と応援を強く引き出す。また、主人公の不幸な生い立ちと、姉を失った後の双子との苦労の日々が丁寧に描かれることで、視聴者は主人公の苦悩に寄り添い、感情移入が深まる。その後の、不妊で苦しんだリサさんとの出会いと、互いの過去を乗り越えて新しい家族を築き、最終的にリサさんが妊娠するという「奇跡」は、人生経験豊富なシニア層に「どんなに苦労しても、諦めなければ幸せは訪れる」という深い感動と希望を与える。直接的な「スカッと」は親戚への反論場面のみだが、主人公が最終的に大きな幸福を掴むことで、間接的に「理不尽な相手を見返す」以上の「人生の勝利」というカタルシスを提供し、心温まる感動的な展開が長期的な視聴満足度とチャンネルの信頼性向上に繋がるため、多くのシニア層に支持され、高く評価される動画である。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -6384,8 +6447,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">【シニア恋愛】60歳の愛… | 黄昏の恋物語 | 老年のための知恵 | 感動を呼ぶ物語 | オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：正直に全てを打ち明けます。マッ昼ルマ それもランチタイムで1番忙しいはずの 時間に私が慌てて店のシャッターを下ろし...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        正直に全てを打ち明けます。マッ昼ルマ それもランチタイムで1番忙しいはずの 時間に私が慌てて店のシャッターを下ろし...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -6407,11 +6470,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -7596,8 +7659,8 @@ CDをかけ、レースのテーブルクロスを
                     <div class="card-title-row">「高卒に未来はない！」とIQ200の天才少女を解雇した会長の息子。わずか10分で10兆円契約が破棄され涙の土下座…！【感動する話】【朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：高卒のくせにうちの会社に残るつもりか? 高卒に未来なんてない。そう叫んだ男がい ました。華やかなパーティー会場の真ん中...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        高卒のくせにうちの会社に残るつもりか? 高卒に未来なんてない。そう叫んだ男がい ました。華やかなパーティー会場の真ん中...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -7619,11 +7682,11 @@ CDをかけ、レースのテーブルクロスを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -8287,8 +8350,8 @@ MBA出身者たちでも2日はかかる問題を
                     <div class="card-title-row">初出勤10分で解雇された貧しい高卒女性。助けた外国人の正体は…⇒3日後、1兆円契約が消滅</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：初日に遅刻。お前は首田。高卒のくせに 生意きだ。初出勤わずか10分で解雇され た女性がいました。高卒。しかも遅刻。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        初日に遅刻。お前は首田。高卒のくせに 生意きだ。初出勤わずか10分で解雇され た女性がいました。高卒。しかも遅刻。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -8310,11 +8373,11 @@ MBA出身者たちでも2日はかかる問題を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -9226,8 +9289,8 @@ MBA出身者たちでも2日はかかる問題を
                     <div class="card-title-row">パワハラ上司の命令を無視して金髪女子高生を助けたら、後日社長室に呼び出され…社長令嬢「パパ、すぐ解雇して」主人公「え？」実は…【感動する話】【馴れ初め】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：おい、田村、女子高生なんか放っておけ。 正談に遅れるぞ。僕は上司の言葉を無視し て倒れている女子高生に駆け寄った。勝手...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        おい、田村、女子高生なんか放っておけ。 正談に遅れるぞ。僕は上司の言葉を無視し て倒れている女子高生に駆け寄った。勝手...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -9249,11 +9312,11 @@ MBA出身者たちでも2日はかかる問題を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -9799,8 +9862,8 @@ MBA出身者たちでも2日はかかる問題を
                     <div class="card-title-row">廃業寸前でお客がゼロの旅館に来た俺。元料理人の俺が女将に手を貸した結果...【感動する話】【馴れ初め】【スカッとする話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：田舎の旅館にはもう未来がない。そろそろ 売り時きですよ。そう言い放った男は愛そ のいい笑顔のまま目は笑っていなかった。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        田舎の旅館にはもう未来がない。そろそろ 売り時きですよ。そう言い放った男は愛そ のいい笑顔のまま目は笑っていなかった。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -9822,11 +9885,11 @@ MBA出身者たちでも2日はかかる問題を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -10406,8 +10469,8 @@ MBA出身者たちでも2日はかかる問題を
                     <div class="card-title-row">「おかあさん」託児所の休園で3歳の妹を連れて登校した陰キャの俺妹が懐いたのは学校一の金髪ギャルだった【スカッとする話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：学校に子供連れてくるとか舐めてんのか 教室に響いたその声に俺は思わず身を救め た金髪のスケ番霊下そしてその鳥巻きの...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        学校に子供連れてくるとか舐めてんのか 教室に響いたその声に俺は思わず身を救め た金髪のスケ番霊下そしてその鳥巻きの...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -10429,11 +10492,11 @@ MBA出身者たちでも2日はかかる問題を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -11173,8 +11236,8 @@ MBA出身者たちでも2日はかかる問題を
                     <div class="card-title-row">【漫画】50歳、毎日ストロングゼロを3本飲む男の末路。年収500万の課長がゴミ屋敷で震える理由…【メンタル闇ネタ】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：ただいま。返事はない。リビングの電気は 消えている。妻と大学生の息子はもう実質 に引き上げているようだ。それでいい。誰...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        家庭内の孤独と疲弊を感じる50歳のサラリーマンが、現実逃避のためアルコール（ストロング系飲料）にすがり、それを「救い」「...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -11196,11 +11259,11 @@ MBA出身者たちでも2日はかかる問題を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 家庭内の孤独と疲弊を感じる50歳のサラリーマンが、現実逃避のためアルコール（ストロング系飲料）にすがり、それを「救い」「燃料」として渇望する心理と行為を冒頭から具体的に描写することで、シニア層が抱える現代社会のストレスや隠れた悩みに深く共感させる。</p>
+                <p><strong>【物語モデル】</strong> - 中堅企業の課長として激務と家庭内孤立に苦しむ50歳の主人公が、ストロング系飲料への依存を深める。初期は飲酒量増加、隠蔽工作、妻との関係悪化に陥り、自己否定と現実逃避を繰り返す。中期には離脱症状、会社での集中力低下、診断結果の無視、そして昼間からの飲酒勤務へとエスカレート。最終的には飲酒状態での重大な業務ミスにより会社を解雇され、妻と息子からは離婚届と置き手紙で縁を切られ家庭も崩壊。退職金を使い果たし、住宅を失ってホームレスに転落、ゴミ箱を漁り、幻覚・幻聴に苦しむどん底を経験する。死を覚悟した車道で倒れ、救急搬送されるも奇跡的に生還。ソーシャルワーカーと出会い、断酒会で同じ境遇の人々の話を聞くことで初めて自分がアルコール依存症であることを認め、再生への一歩を踏み出す。工事現場の交通誘導員として働きながら断酒を続け、別れた妻に連絡して自身の変化を伝えることで、完全に許されたわけではないが、かつての家族との微かな絆と希望を感じ取る。最終的に、「今日一日だけ飲まない」という地道な戦いを続けることを決意し、同じ境遇の人々へエールを送る。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、50代のサラリーマンが現代社会のストレス（激務、経済的重圧、家庭内孤立）からアルコール依存に陥り、会社解雇、家庭崩壊、ホームレス転落という壮絶な破滅を経て、わずかながらも再生の道を歩み始めるという、絶望と希望の対立構造を鮮烈に描いている。シニア層にとっては、主人公の境遇が自分や身近な人々に起こりうる「警鐘」として強く響くとともに、「自分だけではない」という孤独感からの解放や、どん底からでも人生を再起できるという「希望」のメッセージが深く共感を呼んだ可能性が高い。特に、「スカッと系」とは異なるが、主人公が自身の愚かさと向き合い、地道な努力で人間性を取り戻していく過程は、視聴者に強いカタルシスと感動を与え、深い教訓を提供する点で、シニア層に強く支持される内容である。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -11805,8 +11868,8 @@ GTPの数値は480、基準値は50以下
                     <div class="card-title-row">「妻より癒される」はずだった…。64歳元部長がハマった「茶飲み友達」の正体と、500万で買った「顧問」という名の幻覚。【シニア朗読雑学】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：午前6時、目覚まし時計が鳴る前に高田 商司64歳は目を覚ました。現役時代 大手百貨店のフロアマネージャーとして...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        現役時代に威厳を誇った元百貨店フロアマネージャーの夫が、退職後に妻から冷たくあしらわれる日常の描写から始まり、視聴者に夫...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -11828,11 +11891,11 @@ GTPの数値は480、基準値は50以下
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 現役時代に威厳を誇った元百貨店フロアマネージャーの夫が、退職後に妻から冷たくあしらわれる日常の描写から始まり、視聴者に夫婦間のパワーバランスの変化と今後の衝突への興味を抱かせる。</p>
+                <p><strong>【物語モデル】</strong> - 威厳を失い家庭で疎外感を感じる元フロアマネージャーの夫が、自分を「顧問」として持ち上げる女性詐欺師に接近され、承認欲求を満たすために合計500万円を騙し取られる。詐欺の事実を妻が冷静に見抜き、夫の驕りと世間知らずを厳しく指摘。離婚はしないものの、500万円を夫の10年分の小遣いとして取り上げ、家事全般を「業務命令」として夫に課す。結果、夫は強制的な家事労働を通じて、過去の栄光や外部の承認ではなく、家庭での実直な貢献と妻からの小さな感謝に真の自己価値と居場所を見出す、夫婦関係再構築のスカッと展開。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、定年退職後の夫婦間に生じがちな「夫の自己肯定感の喪失と妻の自立」という対立構造、および「高齢者を狙う詐欺」という社会問題を巧みに融合させている。主人公の夫が自身のプライドと承認欲求のために詐欺に加担して大金を失い、その後妻に現実を突きつけられ家事労働に追われる展開は、多くのシニア層、特に夫の傲慢さに不満を持つ妻側からすれば「痛快な因果応報」として強いスカッと感を覚えるだろう。また、夫が家事労働を通じて自己を見つめ直し、真の価値と居場所を家庭に見出すという結末は、現実的な課題への建設的な示唆と希望を与え、単なる懲罰ではなく成長物語として、シニア層に深く共感され、戒めと同時に納得のいく解決策を提示するものとして受け入れられたと考えられる。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -12439,8 +12502,8 @@ GTPの数値は480、基準値は50以下
                     <div class="card-title-row">万引きした中卒少女を雇った整備士…3ヶ月後、誰も予想しない奇跡が起きた【感動する話】【朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：とりの消えた整備工場。少女は鉄くの山の 前にしゃがみ込んでいました。これを売っ たらお金になるかな?少女はそっと手を...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        動画冒頭で、貧しい少女が廃れた整備工場から鉄屑を盗もうとし、無愛想なオーナーに捕まる緊迫した状況から、意外にも手を差し伸...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -12462,11 +12525,11 @@ GTPの数値は480、基準値は50以下
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 動画冒頭で、貧しい少女が廃れた整備工場から鉄屑を盗もうとし、無愛想なオーナーに捕まる緊迫した状況から、意外にも手を差し伸べられる展開で視聴者の関心を惹きつけます。</p>
+                <p><strong>【物語モデル】</strong> - 落ちぶれた整備工場を営む頑固な職人ケジが、病気の弟のため鉄屑を盗もうとした少女七を雇い、弟子として育てていく物語。七の特異な観察力で、ライバルである大手チェーン店経営者エグチが直せなかったクラシックカーの欠陥を見つけ出し、修理に成功する。エグチが七の経験不足と無資格を攻撃する中、ケジは「俺の弟子だ」と七を擁護し、オーナーもエグチの不正な行為を糾弾、ケジの工場と専属契約を結ぶ。これにより工場は再建へ向かい、七は正式に整備士の道を志すという、師弟の絆と再生のスカッと系展開です。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、古き良き職人技と人間味あふれる関係性が、金儲け主義の現代的なビジネスに勝利するという対立構造がシニア層に深く響きます。苦労人が報われる展開、若者を導く師弟関係、そして悪役が痛い目に遭う「スカッと」要素が、共感と正義感をもたらし、懐かしさと同時に希望を感じさせることで、非常に高い評価を得られたと考えられます。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -13212,8 +13275,8 @@ GTPの数値は480、基準値は50以下
                     <div class="card-title-row">いつも僕をバカにする新人女子社員、独身の僕が会社の花見に双子兄弟を連れて行ったら子供と仲良しになって...【感動する話】【馴れ初め】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：先輩って彼女いない歴年齢ですよね。休憩 室に響いた新入社員の無邪気な一言。29 歳独身。地味で目立たない存在として扱わ...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        先輩って彼女いない歴年齢ですよね。休憩 室に響いた新入社員の無邪気な一言。29 歳独身。地味で目立たない存在として扱わ...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -13235,11 +13298,11 @@ GTPの数値は480、基準値は50以下
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -13715,8 +13778,8 @@ GTPの数値は480、基準値は50以下
                     <div class="card-title-row">資産家なのに質素な暮らし？銀行員の甘い罠を断り、古びたマンションで手に入れた「最強の幸福論」が深すぎる。</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：午前7時45分。東京某鉄線の駅中にある 立ち食いそばや出勤前のサラリーマンたち が押し寄せ湯気と共にずるズるという面を...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        午前7時45分。東京某鉄線の駅中にある 立ち食いそばや出勤前のサラリーマンたち が押し寄せ湯気と共にずるズるという面を...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -13738,11 +13801,11 @@ GTPの数値は480、基準値は50以下
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -14268,8 +14331,8 @@ AI運用型グローバル俳優債権ファンドを
                     <div class="card-title-row">【シニア恋愛】離婚した私を慰めてくれたのは、7年間会っていなかった義兄でした...| 黄昏恋愛 | 老後の知恵 |</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：ドアを閉めてください。 どれだけ自分が辛かったか、もう全て見 られたような気がしました。恥ずかしさが...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        主人公の離婚直後の極限の孤独と絶望、そして亡き姉の夫である義兄との出会いが、その苦しみを共有し救われる可能性を暗示し、視...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -14291,11 +14354,11 @@ AI運用型グローバル俳優債権ファンドを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 主人公の離婚直後の極限の孤独と絶望、そして亡き姉の夫である義兄との出会いが、その苦しみを共有し救われる可能性を暗示し、視聴者の感情移入を即座に引きつける。</p>
+                <p><strong>【物語モデル】</strong> - 離婚と自己肯定感の喪失に苦しむ主人公が、亡き姉の夫である義兄の元に身を寄せる。義兄もまた妻（姉）の死による深い孤独を抱え、互いに傷つけられながらも、無言の同居生活を通じて次第に心の距離を縮める。ある夜の出来事をきっかけに、互いの孤独と相手への秘めた感情が露見し、亡き姉への罪悪感と倫理的葛藤に直面しながらも、抑えきれない活望が芽生える。義兄からの告白と主人公の受容により、感情的な一線を越えるが、現実の壁に一度は引き戻され、熟考の時間を要する。しかし、二人の関係が「必ずその日が来る」と示唆される形で物語は幕を閉じ、新たな関係性の始まりを予感させる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層が抱える孤独、喪失、自己肯定感の低下といった普遍的なテーマを深く描き、視聴者の共感を強く引き出す。亡き姉の夫という「禁断の恋」の対立構造は、倫理的タブーと心の活望との葛藤を通じて高いドラマ性を提供し、シニア層が現実では経験しにくいロマンスへの好奇心を満たす。単なる「スカッと」とは異なり、深い心の傷を癒し合い、最終的に互いに必要とし合う過程が、人生の終盤における「誰かに求められること」という潜在的な願望を刺激し、心の深い部分での救済と希望を与えたため、共感と感動を得られたと考える。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -15649,8 +15712,8 @@ AI運用型グローバル俳優債権ファンドを
                     <div class="card-title-row">【漫画】年金12万の私が、年金16万の友人より「お金持ち」な理由。見栄を捨てた72歳が手に入れた、老後の意外な正解とは？</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：午前5時、東京高街にある地区35年の アパートの一室に柔らかな朝日が差し込む 。小林ふ子72歳。彼女の朝は夜間でお湯...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        シニア層が共感しやすいリアルな日常描写と経済状況（年金12万円）を提示し、世間の老後不安との対比を通じて、主人公が持つ「...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -15672,11 +15735,11 @@ AI運用型グローバル俳優債権ファンドを
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - シニア層が共感しやすいリアルな日常描写と経済状況（年金12万円）を提示し、世間の老後不安との対比を通じて、主人公が持つ「心の豊かさ」や「生活の知恵」への興味を喚起する。</p>
+                <p><strong>【物語モデル】</strong> - 年金12万円で質素ながら豊かな生活を送る主人公・ふ子が、他人の評価や見栄に縛られ浪費する友人・京子、物質的な豊かさがあるにも関わらず満たされない高級老人ホームの乱子と対比される。ふ子は娘からの仕送りを非常時の「お守り」として貯蓄し、親としての自立を保つ。物語は、京子が金銭的な困窮で借金を申し出るが、ふ子はお金を貸さずに「心の自立」を促す。また、洗濯機の故障という突発的な出費にも、日頃の計画的な貯蓄で冷静に対応し、「お金は自由を守る盾」という哲学を示す。最終的に、ふ子の生き様や言葉が京子と乱子に影響を与え、二人は見栄や依存から解放されて、自らの心の豊かさを見つけ出す。主人公は「足るを知る」境地に達し、年金12万円の生活こそが「最高に贅沢」だと再認識する、というスカッと展開と教訓で結ばれる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層に非常に響くコンテンツであり、視聴者の共感とカタルシスを強く引き出すため、高く評価され、チャンネルが回るだろう。年金12万円というリアルな経済状況の中で、主人公が心の豊かさを見つける姿は、多くのシニア層が抱える老後への不安を和らげ、「お金がすべてではない」という安心感を提供する。対立構造としては、主人公の「足るを知る」「自立」という生き方と、友人の京子の「見栄」「依存」「浪費」、そして高級老人ホームの乱子の「物質的な豊かさの中の精神的空虚」が明確に対比されている。特に、京子に対して借金を断りつつも精神的な自立を促す場面や、乱子が豪華な生活を捨てて自らの人生を取り戻す場面は、視聴者が抱える「世間体」「子供への負担」「漠然とした老後不安」といった潜在的な葛藤を代弁し、そこからの解放を描くことで、深いスカッと感と希望を与える。親が子に依存せず自立する姿は、親世代のプライドを肯定し、子供世代にも安心感を与えるという点で、多角的な共感を呼ぶ。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -16204,8 +16267,8 @@ DK日当たり良行
                     <div class="card-title-row">親戚から邪魔者扱いされていた姪を引き取った俺 → 隣に住んでいる幼馴染が姪の母親のような優しさで接してくれた結果...【感動する話】【馴れ初め】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：嫁の出来が悪くて女埋めなかった。その 言葉を5歳の女の子の目の前で祖母は笑い ながら言い放った。俺は耳を疑った。隣に...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        嫁の出来が悪くて女埋めなかった。その 言葉を5歳の女の子の目の前で祖母は笑い ながら言い放った。俺は耳を疑った。隣に...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -16227,11 +16290,11 @@ DK日当たり良行
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -16605,8 +16668,8 @@ DK日当たり良行
                     <div class="card-title-row">気になっていた美人同僚に「家業の農園を継ぐ」と伝えた俺。別れのあいさつをして地元に戻った→４ヶ月後、彼女が突然現れた結果...【感動する話】【馴れ初め】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：高卒のドライバーが農業をやってもどうせ 続かんその言葉を背中で聞きながら俺は 振り返らなかった言い返す言葉なんて持っ...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        主人公に向けられた「どうせ続かない」という周囲の侮蔑的な言葉と、それに対し静かに決意を固める主人公の姿を描写することで、...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -16628,11 +16691,11 @@ DK日当たり良行
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 主人公に向けられた「どうせ続かない」という周囲の侮蔑的な言葉と、それに対し静かに決意を固める主人公の姿を描写することで、逆境からの「スカッと」展開への期待感を高めている。</p>
+                <p><strong>【物語モデル】</strong> - 主人公が、義兄の失踪により実家の梅農園を継ぐが、地元有力者から「高卒ドライバー上がりには無理」と理不尽な嘲笑と嫌がらせを受ける。主人公はそれに耐え、黙々と農業に打ち込む。経営難に直面する中、元職場の同僚（ヒロイン）が英語力とビジネスセンスで海外展開を提案・実現。その結果、嘲笑していた有力者を言葉ではなく実績で完全に論破し、最終的に農園の発展とヒロインとの結びつきを得る大逆転スカッと展開。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、理不尽な嘲笑や逆境に「黙々と」耐え、地道な努力を続ける主人公が、最終的に「言葉ではなく結果」で侮辱者を黙らせ、仕事と私生活の両方で成功を掴むという、シニア層が共感しやすい「努力と誠実さの肯定」と「大逆転のスカッと」を巧みに組み合わせている。特に、人生経験豊富なシニア層にとって、聖堂のような口ばかりの権威主義者への反発と、主人公のような実直な人物への共感は強く、努力が報われる爽快な展開はカタルシスを与えたと推測される。また、40代でのキャリアチェンジと成熟した恋愛も、人生の新たな可能性を示すメッセージとして響いたと考えられる。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -17229,8 +17292,8 @@ SNSで動画を発信するだけで[音楽]
                     <div class="card-title-row">【シニア恋愛】姉の友人と二人きりの一泊二日…テントが破れそうになった熱い夜 / 黄昏恋愛 / 黄昏告白 / 黄昏の物語 / オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：正直に告白します。僕はあの夜理性を失う ことを決めたのです。 45歳の男が49歳の姉の友人よ洋子さん...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        正直に告白します。僕はあの夜理性を失う ことを決めたのです。 45歳の男が49歳の姉の友人よ洋子さん...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -17252,11 +17315,11 @@ SNSで動画を発信するだけで[音楽]
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -18378,8 +18441,8 @@ Tシャツ1枚だけを身につけた彼女が膝を
                     <div class="card-title-row">【漫画】1年だけ年金を繰り下げた65歳男の誤算…「正しい選択」が間に合わなかった理由.</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：数字の上では俺の老語に欠点はなかった。 そう言いきれるだけの準備を俺はしてきた つもりだ。俺の名前は野口高一。65歳。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        数字の上では俺の老語に欠点はなかった。 そう言いきれるだけの準備を俺はしてきた つもりだ。俺の名前は野口高一。65歳。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -18401,11 +18464,11 @@ Tシャツ1枚だけを身につけた彼女が膝を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -18838,8 +18901,8 @@ Tシャツ1枚だけを身につけた彼女が膝を
                     <div class="card-title-row">【シニア恋愛】暴雨で孤立した夜、現れた見知らぬ男性の親切...| 黄昏恋愛 | 老後の知恵 | 感動ストーリー | オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：山小屋の小さな窓に土砂織りの雨が激しく 打ちけていた。私は全身濡れで震えが 止まらない。濡れた服は危険です。すぐに...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        孤独な49歳の主人公が土砂降りの雨の中、山小屋に閉じ込められ、見知らぬ男性から『服を脱げ』と迫られるという、極限の密室状...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -18861,11 +18924,11 @@ Tシャツ1枚だけを身につけた彼女が膝を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 孤独な49歳の主人公が土砂降りの雨の中、山小屋に閉じ込められ、見知らぬ男性から『服を脱げ』と迫られるという、極限の密室状況と身体的危機を冒頭に提示し、視聴者の不安と好奇心を強く惹きつける。</p>
+                <p><strong>【物語モデル】</strong> - 夫を亡くし孤独に生きる49歳の主人公（春み）が、山登り中に土砂降りに遭い、見知らぬ50代後半の男性（ケト）と山小屋に閉じ込められる緊急事態に遭遇します。低体温症の危険から、ケトは春みに服を脱いで体温を共有するよう促し、最初は抵抗する春みも、紳士的なケトの態度と緊急性から身体的な接触を受け入れざるを得ません。ブラジャーのホックを外してもらうなど、身体的な距離が縮まる中で、お互いが配偶者を亡くした孤独な境遇にあることを知り、深い共感を覚えます。理性を超えた感情の赴くままに二人は一夜を共にし、春みは長年抑圧されていた感情と性的欲求が解放されるカタルシスを味わいます。救助後も二人は連絡を取り合い、定期的に会って愛を育む関係へと発展。「愛している」という言葉を交わし、関係は真剣なものへと深まります。半年後、ケトから同棲・再婚の提案があり、春みは新たな人生の可能性に希望を見出します。物語は、年齢を言い訳にせず、心が動くなら勇気を持ってチャンスを掴むべきだというメッセージで締めくくられます。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画がシニア層に強く受け入れられる理由は、主に「孤独からの解放」と「新たな人生の可能性への希望」という対立構造にあります。多くのシニア層が抱える配偶者との死別による孤独感や、年齢による恋愛・人生の再構築への諦めを、主人公春みの境遇を通じてリアルに表現しています。山小屋という非日常的で極限的な密室空間は、社会的な常識や年齢による制約から一時的に解放され、本能的な感情や欲求が表出する舞台となります。主人公が「生き返った」と感じるほどの感情・身体的解放は、視聴者に強いカタルシスと共感をもたらし、停滞した日常からの「スカッと」とした脱却を感じさせます。性的な描写も含まれますが、これは単なる扇情目的ではなく、主人公の心の動きや失われた自己を取り戻す重要な要素として描かれているため、シニア層の共感を呼ぶでしょう。「年齢は言い訳に過ぎない。心が動いたならついていってください」という結びのメッセージは、シニア層の潜在的な願望を刺激し、行動を促す力を持っています。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -19463,8 +19526,8 @@ Tシャツ1枚だけを身につけた彼女が膝を
                     <div class="card-title-row">派遣先の会長から強制的にお見合いさせられた俺。最恐の元ヤンと噂の美女「久しぶり」俺「え？」【スカッとする話】【感動する話】【馴れ初め】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：孫娘と見合いをしてくれないか。大企業の 会長に突然そう言われた時、俺はただの 派遣警備員だった。相手は最強の元やんと...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        大企業の会長から派遣警備員である主人公へ、最強の元やんと噂される男嫌いの孫娘との見合い話が唐突に持ちかけられ、それが5年...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -19486,11 +19549,11 @@ Tシャツ1枚だけを身につけた彼女が膝を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 大企業の会長から派遣警備員である主人公へ、最強の元やんと噂される男嫌いの孫娘との見合い話が唐突に持ちかけられ、それが5年前に人生を狂わせた記憶と繋がることを示唆し、身分違いのロマンスと過去の因縁というミステリアスな展開で視聴者の好奇心を惹きつけている。</p>
+                <p><strong>【物語モデル】</strong> - 導入は、派遣警備員の主人公が、大企業の会長の孫娘（男嫌いの美女）との身分違いの見合いを強制されることから始まる。序盤では、職場でのヒロインに対する陰口（元やん、男嫌い、警備員とお見合い）に対し主人公が毅然と反論するスカッと展開を挟む。物語の中盤では、主人公がかつてITエンジニアを目指したものの、痴漢被害の女性（実はヒロイン）を助けたことで採用試験に遅刻し夢を諦めた過去が明かされる。ヒロインはその事実を偶然知り、自身の存在が主人公の人生を狂わせたと深く後悔し謝罪する。しかし、主人公はヒロインを助けたことを後悔していないと告白し、自分の力でITエンジニアの夢に再挑戦すると宣言。これを受け、ヒロインも助けられた時から主人公を愛していたことを告白し、身分や職業を気にしない純粋な愛情を伝えることで、二人の心が通じ合う。最終的に、主人公は会長からのITエンジニアとしての採用オファーを断り、自力で夢を叶えることを選び、ヒロインと結婚、5年後にはITエンジニアとして成功し、子供を授かる幸せな結末を迎える。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層が強く共感する「努力は報われる」「正義の行動が未来を切り開く」「人生の再挑戦」というテーマを巧みに描いている。派遣警備員という身分から、大企業の会長の孫娘と結ばれるというシンデレラストーリーでありながら、主人公が会長の口利きに頼らず、自力で夢を掴み取る展開は、単なる逆玉の輿に終わらず、シニア層が好む「自立心」と「尊厳」を高く評価させるだろう。特に、職場でヒロインに対して陰口を叩く女性社員たちへ主人公が堂々と反論し、論破するシーンは、日頃の不満や不条理に対する代理的なカタルシスを提供し、シニア層の視聴者が「スカッと」する重要な要素となっている。また、過去の挫折を乗り越え、諦めかけていた夢に再度挑戦し、成功する主人公の姿は、セカンドキャリアを考えるシニア層に希望と勇気を与える。このように、道徳的な正しさ、努力の尊さ、そして困難を乗り越えた先にある幸せな家族の形が、シニア層の価値観に深く響き、好意的に受け入れられたと考えられる。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -20320,8 +20383,8 @@ Tシャツ1枚だけを身につけた彼女が膝を
                     <div class="card-title-row">【シニア恋愛】社長の妻は、30年前に別れた私の初恋でした｜黄昏の物語｜老後の物語｜オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：玄関の扉が開いたその瞬間でした。泥水し た吉社長を抱えるようにして玄関に入ると リビングの明りの下に1人の女性が立って...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        泥酔した社長を送り届けた先で、30年前に自らの愛情の重さに耐えかねて去っていった初恋の女性が、その社長の妻として目の前に...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -20343,11 +20406,11 @@ Tシャツ1枚だけを身につけた彼女が膝を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 泥酔した社長を送り届けた先で、30年前に自らの愛情の重さに耐えかねて去っていった初恋の女性が、その社長の妻として目の前に現れるという衝撃的な再会を描写し、視聴者の好奇心と予測不能な展開への期待感を煽っている。</p>
+                <p><strong>【物語モデル】</strong> - 冷え切った夫婦関係に苦悩する61歳の主人公が、会社の飲み会で泥酔した社長を家まで送り届けた際、その社長の妻が30年前に別れた初恋の女性であることが判明する。二人は秘密の再会を重ね、初恋の女性は、主人公の過去の愛情が重すぎたことを改めて語ると共に、現在の夫（社長）からの所有欲的な支配と、夫の連れ子（亮太）による財団の公金横領計画と精神的嫌がらせで苦しんでいることを打ち明ける。再会を重ねる二人に対し、社長は妻の不審な行動を疑い始め、主人公の妻も夫の異変に気づき関係が冷え切る中、遂には亮太が二人の密会を目撃し、主人公と初恋の女性が窮地に追い込まれる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層が共感しやすい「冷え切った夫婦関係」「過去の恋愛への郷愁と後悔」「再婚家庭の確執」「財産を巡る家族内の対立」といったテーマが複数織り込まれており、強いリアリティと人間ドラマとして受け入れられた可能性が高い。特に、初恋の女性が義理の息子による金銭問題と精神的な苦痛に苛まれ「誰が味方なのか分からない」と苦悩する状況は、シニア層が直面しうる孤独感や弱者の立場への共感を誘発する。現時点ではスカッと展開には至らず、主人公とヒロインが追い詰められる過程が描かれているが、視聴者はこの後の「大逆転」や「スカッと」展開への強い期待感から、次の動画への視聴意欲を高められただろう。主人公が倫理的な板挟みの中で、過去の自分と現在の感情に向き合う姿も、多くのシニア層にとって共感を呼ぶ点である。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -21841,8 +21904,8 @@ A
                     <div class="card-title-row">【シニア恋愛】ねえ、今夜だけ妹と一緒に寝ていい？ / 黄昏恋愛 / 黄昏告白 / 黄昏の物語 / オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あなた、今日だけ義まと寝てくれない妻の その一言が全てを変えてしまったのです。 私は50歳、妻は44歳。結婚して20年...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        あなた、今日だけ義まと寝てくれない妻の その一言が全てを変えてしまったのです。 私は50歳、妻は44歳。結婚して20年...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -21864,11 +21927,11 @@ A
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -23130,8 +23193,8 @@ A
                     <div class="card-title-row">【シニア恋愛】その後に待っていた思わぬ告...| 黄昏恋愛 | 老後の知恵 | 感動ストーリー | オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：私の名前は岸島楓57歳です。 3年前に夫を先立たせ、1人で暮らしてい ます。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        私の名前は岸島楓57歳です。 3年前に夫を先立たせ、1人で暮らしてい ます。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -23153,11 +23216,11 @@ A
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -24290,8 +24353,8 @@ A
                     <div class="card-title-row">【シニア恋愛】家賃督促に来た60代の大家さん、40代独身男性の部屋で驚く…| 黄昏恋愛 | 老後の知恵 | 感動ストーリー | オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：これは本当に人間の体で可能なことなのか と飲みました。 自分の目を疑うような光景が目の前に...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        息子のようでもある独身男性の部屋で、主人公がこれまで経験したことのない衝撃的な光景と感情を目の当たりにしたことを示唆し、...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -24313,11 +24376,11 @@ A
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 息子のようでもある独身男性の部屋で、主人公がこれまで経験したことのない衝撃的な光景と感情を目の当たりにしたことを示唆し、「恥ずかしくも刺激的な話」と予告することで、その物語への強い好奇心を煽る。</p>
+                <p><strong>【物語モデル】</strong> - 冷え切った夫婦関係とモラハラ夫に苦しむ60歳の大家である主人公の日常に、心優しくも社会で孤立する若き力強い年下入居者が現れる。蛍光灯交換や駐車場でのトラブル、さらに予期せぬハプニングを通して、主人公は年下男性の男性的な魅力と優しさ、そして彼が抱える孤独を理解し、女性としての感情を再覚醒させる。夫が不在の日に二人は結ばれるが、予期せぬ夫の帰宅により不倫現場が発覚。激昂し暴力に訴えようとする夫に対し、年下男性が主人公を物理的に守り、さらに夫の長年にわたる主人公へのモラハラ・DVを全て知っていたことを暴露して撃退。主人公は長年の抑圧から解放され、新たな人生への希望を抱く結末となる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、長年夫からのモラハラや精神的軽視に耐え、女性としての自尊心を失っていたシニア女性視聴者の深い共感と願望充足を狙っている。若く、力強く、そして自分を心から理解し守ってくれる年下男性からの愛情は、抑圧された日常を生きるシニア層にとって、強い「スカッと」と「非日常の刺激」を提供している。特に、頼りない夫と対照的な年下男性の描写は、現実の不満を増幅させ、感情的なカタルシスを生む。最終的に夫のDV・モラハラ行為が第三者の口から暴露され、物理的にも精神的にも夫が制圧される展開は、視聴者が抱える不満や怒りを解消し、溜飲を下げる効果が非常に高い。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -26068,8 +26131,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">高卒の運転手が見抜いた才能――全国最下位の財閥御曹司が東大首席、倒産寸前の家業を救った真実【感動朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：イントロ、高卒の運転手、それ以上の存在 は彼女にはありませんでした。毎月返さ なければならない父の借金がありました。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        イントロ、高卒の運転手、それ以上の存在 は彼女にはありませんでした。毎月返さ なければならない父の借金がありました。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -26091,11 +26154,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -26819,8 +26882,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">【家庭内別居30年】60代夫が初めて気づいた「自分はもう必要とされていなかった」老後と夫婦の現実｜50代60代70代</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：同じ家に住んでいるのに最後に心が通った のはいつだっただろう?朝は一緒に食卓に 着くだが会話はない。夜は同じ屋根の下で...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        夫婦間の心の距離と断絶の危機を「離婚よりも残酷なもの」「目の前にいる配偶者が他人になってしまうこと」という言葉で象徴的に...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -26842,11 +26905,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 夫婦間の心の距離と断絶の危機を「離婚よりも残酷なもの」「目の前にいる配偶者が他人になってしまうこと」という言葉で象徴的に提示し、具体的な状況描写と普遍的な問いかけで視聴者の共感と不安を誘い、物語への関心を惹きつけている。</p>
+                <p><strong>【物語モデル】</strong> - 夫婦（高一とかず子）は長年の会話不足と心のすれ違いにより、すでに心が通わない状態。夫は働くことで責任を果たしていると思い込み、妻は家事育児に無関心な夫に不満を募らせる。夫が定年後、役割を失って家での居場所を見つけられなくなり、夫婦の関係はさらに冷え込む。義母の介護が始まり妻の負担が限界に達する中、夫の隠し借金が発覚し、妻の積年の不満と不信感が爆発。夫は知人の言葉を通して自身の無関心と後悔に気づき始めるが、劇的な和解やスカッと展開はなく、失った信頼が簡単には戻らない現実を受け入れ、頼まれなくても家事を手伝うなど、小さな行動の変化を通じて関係の再構築に向けた一歩を踏み出す。最終的に「人生にやり直しはないが、向き合い直し選択はいつでも残されている」というナレーションで、地道な希望と継続的な努力の重要性を示唆して終わる。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は「夫の無自覚な無関心と、それに対する妻の長年の我慢と疲弊」という対立構造を軸に展開している。シニア層の視聴者にとっては「配偶者が他人になる」というテーマが、定年後の夫婦関係、介護問題、長年の隠し事といった彼らが直面しやすいリアルな問題と結びつき、強い共感と「自分ごと」としての視聴を促した。一般的なスカッと系の「大逆転」とは異なり、夫が自身の過ちに気づき、劇的ではないが地道な変化を始めるという「自己反省と成長」の物語として受け入れられたと考えられる。多くのシニアが抱える潜在的な夫婦関係の悩みを顕在化させ、「まだ諦めなくていい」「できることから始める」という示唆を与えた点が、評価されチャンネルが回った理由と推測される。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -27192,8 +27255,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">妻の入院中、一度も見舞いに行かなかった夫。退院の日、家に帰ると私の荷物が全て庭に捨てられていた【モラハラ夫】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：字幕データが取得できていません。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        字幕データが取得できていません。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -27215,11 +27278,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -27243,8 +27306,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">ヤンキー金髪女子高生と調理実習の授業でペアになった陰キャの俺。彼女に有名店の秘伝のだし巻き卵のレシピを教えたら...【感動する話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あんたみたいな影キャと組むとかマジで 最悪なんだけど調理実習室に響いた冷たい 声金髪に染めた神ピアス派手なネイル...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        あんたみたいな影キャと組むとかマジで 最悪なんだけど調理実習室に響いた冷たい 声金髪に染めた神ピアス派手なネイル...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -27266,11 +27329,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -28178,8 +28241,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">「旦那さんの年金いくら？」執拗に聞いてくる近所のボスママ。嘘の金額を教えたら、とんでもない噂を流された【ご近所トラブル】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：早朝5時、まだ夜が開けきらない台所は まるで冷蔵庫の中にいるように冷え切って いた。よし子68歳は流し台の前に立った...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        早朝5時、まだ夜が開けきらない台所は まるで冷蔵庫の中にいるように冷え切って いた。よし子68歳は流し台の前に立った...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -28201,11 +28264,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -28721,8 +28784,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">「中卒は不採用だｗ」11回も解雇された私。正体を知らない新任部長。「わかりました」と去った結果、会社がパニックにｗ</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：11回彼女が面接に落ち続けた回数です。 理由はたった1つ中卒という学歴。しかし この会社だけは違いました。彼女を唯一...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        11回彼女が面接に落ち続けた回数です。 理由はたった1つ中卒という学歴。しかし この会社だけは違いました。彼女を唯一...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -28744,11 +28807,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -29514,8 +29577,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">【シニア恋愛】週末に一人で釣りへ出かけた先で、思いがけず上司と再会した話… | 黄昏の恋物語 | 老年のための知恵 | 感動を呼ぶ物語 | オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：独身の中年男性です。仕事が終わった夜は いつも1人で心を慰めていました。職場の 部長さゆりさんのことを思い浮かべながら...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        独身の中年男性です。仕事が終わった夜は いつも1人で心を慰めていました。職場の 部長さゆりさんのことを思い浮かべながら...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -29537,11 +29600,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -30913,8 +30976,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">退院して帰宅すると、鍵が開かない。夫「新しい奥さんと住むから荷物は捨てたw」私「ここ、私の家だけど？」→ 警察を呼んで…</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：お客さん、着きましたよ。運転手の無奇質 な声で私は現実に引き戻された。メーター の赤い数字が目に飛び込んでくる。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        手術後の病体と経済的困窮を抱える年金生活の主人公が、夫の迎えもなく高額なタクシー代を支払い、独りで帰宅する描写で、視聴者...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -30936,11 +30999,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 手術後の病体と経済的困窮を抱える年金生活の主人公が、夫の迎えもなく高額なタクシー代を支払い、独りで帰宅する描写で、視聴者の共感と同情を誘う。</p>
+                <p><strong>【物語モデル】</strong> - 人工関節手術を終えたばかりの主人公（洋子）は、夫が迎えに来ず、高額なタクシー代で帰宅。しかし自宅の鍵が変わっており、夫の不倫相手（エミ）の存在と、夫による追い出しが発覚する。夫は洋子を「不良債権」「生産性のないコスト」と罵り、荷物も処分したと冷酷に告げる。絶望の淵に立たされた洋子は、父から受け継いだ家の「単独名義」という法的根拠を思い出し、110番に通報。警察官が駆けつけ、権利証の提示により洋子が正当な家の所有者であることが証明される。洋子は夫の「合理的」という言葉を逆手に取り、夫こそが「最大の不良債権」であると宣言し、夫と愛人を路上に追い出す。その後、新しい鍵を設置し、夫の痕跡を消し去り、誰にも気兼ねなく淹れた紅茶を飲むことで、40年ぶりに自分の人生と家を取り戻した自由と静寂を満喫する。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、弱者である高齢の妻（洋子）と、冷酷で自己中心的な夫（高志）およびその若い愛人（エミ）という明確な対立構造がシニア層の共感と強い怒りを引き出す。年金生活の苦しさ、病気への不安、長年の尽力への報われなさといったシニア層が抱える現実的な悩みに直結し、夫の「不良債権」発言は、老いへの社会の冷たさを象徴し、視聴者の感情を強く揺さぶる。しかし、主人公が法的な知識（権利証のコピー）を武器に冷静かつ論理的に反撃し、夫と愛人を徹底的に追い詰める展開は、現実には難しい復讐を代理体験させ、痛快な「スカッと感」を提供する。最終的に自立と自由を手に入れ、ささやかな幸福を噛みしめる結末は、希望と教訓（財産管理の重要性）を与え、シニア層に深く受け入れられる内容であるため、非常に回る（ヒットする）可能性が高い。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -31305,8 +31368,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">義実家の食事会で私だけカップ麺。「他人の嫁に食わせる寿司はないw」と笑う姑。直後、夫が放った一言に</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：草ゆり64歳は冷え切った台所の床に立ち 、疑実家へ持っていくための煮物を作って いた。古い木造アパートの隙間からは12...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        草ゆり64歳は冷え切った台所の床に立ち 、疑実家へ持っていくための煮物を作って いた。古い木造アパートの隙間からは12...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -31328,11 +31391,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -31685,8 +31748,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">車椅子の私を「粗大ゴミ」と呼び、冬のベランダに放置する夫。数日後、夫が脳梗塞で倒れ「助けて…」私「粗大ゴミだから無理ね」→ その後…</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：12月の風は容赦なく古い木造の隙間から 忍び込んでくる。さゆり68歳は今の隅で 車椅子に深く腰かけたまま厚手の膝かけを...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        12月の風は容赦なく古い木造の隙間から 忍び込んでくる。さゆり68歳は今の隅で 車椅子に深く腰かけたまま厚手の膝かけを...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -31708,11 +31771,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -32041,8 +32104,8 @@ Wi-Fi型の隠しカメラだ。電源が
                     <div class="card-title-row">緊急手術が必要な私に「同意書？面倒くさい。金もかかるし、そのまま…」と言い放った夫。奇跡的に生還した私が、夫に突き付けた『衝撃の復讐』</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：キリキリと井奥が焼けつくような痛みが 走った。り子よ子68歳はシクの淵を強く 握りしめ、油汗の浮いた額体を冷たい...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        キリキリと井奥が焼けつくような痛みが 走った。り子よ子68歳はシクの淵を強く 握りしめ、油汗の浮いた額体を冷たい...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -32064,11 +32127,11 @@ Wi-Fi型の隠しカメラだ。電源が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -32487,8 +32550,8 @@ DVの証拠、そしてあの日手術を拒否した
                     <div class="card-title-row">夫「俺の飯は？母さんのオムツは？」私「家出したので自分でどうぞ」→ 3日後、汚物の中で震える夫が発見されるw</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：午前5時 まだ夜明け前の闇が窓の外を支配している 。目覚まし時計がなる数分前。り子よし子...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        午前5時 まだ夜明け前の闇が窓の外を支配している 。目覚まし時計がなる数分前。り子よし子...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -32510,11 +32573,11 @@ DVの証拠、そしてあの日手術を拒否した
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -32940,8 +33003,8 @@ Tバッグの紅茶だ。いただきます。手を
                     <div class="card-title-row">余命宣告された私に「治療費の無駄！早く〇〇」と笑う夫。私「わかった」→ 半年後、奇跡的に回復した私が夫に復讐する</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：病院を出ると11月の冷たい雨が1人ひと 降っていた。傘を打つ天音が私の頭の中で 反響する意思の言葉と重なる。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        病院を出ると11月の冷たい雨が1人ひと 降っていた。傘を打つ天音が私の頭の中で 反響する意思の言葉と重なる。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -32963,11 +33026,11 @@ Tバッグの紅茶だ。いただきます。手を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -33391,8 +33454,8 @@ Tバッグの紅茶だ。いただきます。手を
                     <div class="card-title-row">不倫夫「今日から愛人と住む！出て行け！」私「ここ、私の実家だけど？」→ 警察に『不法侵入』で通報した結果、愛人と共に手錠生活w</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：行った。 思わず漏れた声は誰の耳にも届くことなく 冷え切った廊下に吸い込まれていった。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        行った。 思わず漏れた声は誰の耳にも届くことなく 冷え切った廊下に吸い込まれていった。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -33414,11 +33477,11 @@ Tバッグの紅茶だ。いただきます。手を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -33861,8 +33924,8 @@ Tバッグの紅茶だ。いただきます。手を
                     <div class="card-title-row">定年夫「退職金は渡さん！寄生虫は出て行け！」私「わかりました（即、荷造り）」→ 3日後、夫が公園で震えていた「マヌケな理由」w</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：大心の床から生い上がるレキは容赦なく私 の足首を掴み、そこから太もの裏側へと 鋭い痛みを走らせた。行った。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        大心の床から生い上がるレキは容赦なく私 の足首を掴み、そこから太もの裏側へと 鋭い痛みを走らせた。行った。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -33884,11 +33947,11 @@ Tバッグの紅茶だ。いただきます。手を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -34280,8 +34343,8 @@ Tバッグの紅茶だ。いただきます。手を
                     <div class="card-title-row">【後悔】「今年の正月、行かないから」息子の冷たい一言。寂しい母が気づいてしまった、息子が実家に寄り付かなくなった『本当の理由』【シニア朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：12月16日午後8時13分。今年の正月 は行かないから息子の声がスマートフォン から冷たく。母はかず子62歳のスマート...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        息子夫婦が正月に来ないという突然の連絡と、冷たい息子の声に、62歳の母親の感情が大きく揺さぶられる様子を描き、視聴者の共...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -34303,11 +34366,11 @@ Tバッグの紅茶だ。いただきます。手を
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - 息子夫婦が正月に来ないという突然の連絡と、冷たい息子の声に、62歳の母親の感情が大きく揺さぶられる様子を描き、視聴者の共感と不安を誘う。</p>
+                <p><strong>【物語モデル】</strong> - 息子夫婦の正月不参加の連絡から物語は始まり、主人公かず子（母親）は原因を探るために前年の正月の出来事を回想する。良かれと思ってしたはずの、孫への過干渉、嫁への育児や料理へのアドバイス、大量のおせちの残り物といった行動が、実は嫁を疲弊させていた可能性に気づき始める。息子からの遠回しな理由説明（『正月の義実家がちょっとしんどいみたいで』）によって、自身の行動が嫁に負担をかけていた事実を突きつけられ、深い絶望と自己否定に陥る。しかし、最終的には「誰も悪くない、ただすれ違っただけ」「私も私を守っていい、無理しなくてもいいんだ」という自己受容に達し、長年縛られていた『母親/義母としての役割』という固定観念から解放される。その結果、おせち作りをやめ、夫婦二人のシンプルな正月を過ごすことで、内面的な心の平穏と自己肯定（『母である前に私は私、私の人生を生きていい』）を得るという、精神的なスカッと展開に至る。</p>
+                <p><strong>【対立構造・所感】</strong> - この動画は、シニア層が抱えやすい「良かれと思ってした行動が、息子夫婦や嫁との関係をぎくしゃくさせる」という普遍的な悩みをテーマにしており、強い共感を呼んだだろう。特に、嫁からの理不尽な攻撃ではなく、主人公自身の「善意」が裏目に出ていたという『すれ違い』の対立構造は、自分にも心当たりのある視聴者にとって身につまされるものだったはずだ。最終的なスカッと展開が、嫁をやり込めるような復讐劇ではなく、「固定観念からの解放」と「自分を大切にすること」による内面的な心の平穏である点が、争いを好まず、穏やかな解決や自己肯定を求めるシニア層の価値観に深く響き、精神的なカタルシスをもたらしたと考えられる。これにより、多くのシニア層が共感し、自身の人生を見つめ直すきっかけとなることで、高く評価され回った可能性が高い。</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -34735,8 +34798,8 @@ LINEの通知が届く。孫の皮膚と体。お
                     <div class="card-title-row">【悲劇】「みんなで温泉行くの！」その一言に凍りついた私…。仲良しグループで『仲間外れ』にされた残酷すぎる理由を知って号泣【シニア朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：その言葉を聞いた瞬間、私は本の1秒呼吸 を忘れました。先週ね、みんなで温泉に 行ってきたの。みんなカップ[音楽]を...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        その言葉を聞いた瞬間、私は本の1秒呼吸 を忘れました。先週ね、みんなで温泉に 行ってきたの。みんなカップ[音楽]を...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -34758,11 +34821,11 @@ LINEの通知が届く。孫の皮膚と体。お
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -35134,8 +35197,8 @@ LINEの通知が届く。孫の皮膚と体。お
                     <div class="card-title-row">【悲劇】私だけいつも待たされていた残酷な理由…。優しい親友ではなく、ただの『都合がいい人』として利用されていた68歳の絶望【シニア朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：7分しか待ってもらえなかった。その事実 を知った瞬間、私の20年間が音を立てて 崩ました。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        7分しか待ってもらえなかった。その事実 を知った瞬間、私の20年間が音を立てて 崩ました。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -35157,11 +35220,11 @@ LINEの通知が届く。孫の皮膚と体。お
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -35513,8 +35576,8 @@ LINEの通知が届く。孫の皮膚と体。お
                     <div class="card-title-row">大雨の日、母の手術に間に合わず駅前のロータリーで大号泣する女子高生→ 仕事を投げ出し車を走らして病院まで送り届けたら…【馴れ初め】【感動する話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：たくまさん、いいんですか?雨の中彼女の 声が震えていた。でも俺はもう決めていた 。駅前で号泣していた女子高生を病院まで...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        たくまさん、いいんですか?雨の中彼女の 声が震えていた。でも俺はもう決めていた 。駅前で号泣していた女子高生を病院まで...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -35536,11 +35599,11 @@ LINEの通知が届く。孫の皮膚と体。お
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -36207,8 +36270,8 @@ LINEの通知が届く。孫の皮膚と体。お
                     <div class="card-title-row">60代「あれ、なんだっけ？」が激減！脳が若返る魔法の習慣5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あれ?何しにこの部屋に来たんだっけ? あの人の名前顔は浮かぶのに出てこない。 さっき聞いたばかりのことをもう忘れて...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        あれ?何しにこの部屋に来たんだっけ? あの人の名前顔は浮かぶのに出てこない。 さっき聞いたばかりのことをもう忘れて...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -36230,11 +36293,11 @@ LINEの通知が届く。孫の皮膚と体。お
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -36579,8 +36642,8 @@ LINEの通知が届く。孫の皮膚と体。お
                     <div class="card-title-row">クーポン券で頼んだお弁当を分け合う老夫婦店主の俺がもう一つお弁当をご馳走した結果...【スカッとする話】【感動する話】【馴れ初め】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：もったいないね。半分庫しましょう。お ばあさんがそう言って、たった1食の午前 を丁寧に2つに割った。クーポン1枚。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        もったいないね。半分庫しましょう。お ばあさんがそう言って、たった1食の午前 を丁寧に2つに割った。クーポン1枚。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -36602,11 +36665,11 @@ LINEの通知が届く。孫の皮膚と体。お
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -37339,8 +37402,8 @@ LINEの通知が届く。孫の皮膚と体。お
                     <div class="card-title-row">「あなたに子育てなんて無理！！」6歳で母を亡くした姪彼女を引き取ったのはスナックで働く叔母だった...【感動する話】【スカッとする話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：スナックで働く子にな、まともな子育てができるわけないでしょう。 入学式の体育館でその声は低く、しかし 確かに広がった金髪...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        スナックで働く子にな、まともな子育てができるわけないでしょう。 入学式の体育館でその声は低く、しかし 確かに広がった金髪...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -37362,11 +37425,11 @@ LINEの通知が届く。孫の皮膚と体。お
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -37742,8 +37805,8 @@ PTA保険委員長に言われた時も自動相談
                     <div class="card-title-row">60代で「人に好かれる人」と「嫌われる人」の決定的な違い。孤独な老後を回避する魔法の口癖5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：年を取ってから急に人が離れていった気が する。よかれと思っていったのに相手が不 期嫌になってしまった。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        年を取ってから急に人が離れていった気が する。よかれと思っていったのに相手が不 期嫌になってしまった。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -37765,11 +37828,11 @@ PTA保険委員長に言われた時も自動相談
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -38124,8 +38187,8 @@ PTA保険委員長に言われた時も自動相談
                     <div class="card-title-row">想定外の「長生き」が招く老後破産のリアル。「人生100年なんて嘘」と高を括った65歳の末路</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：あなたは自分はそんなに長気しないから 大丈夫と根拠のない自信を持っていません か?親父も早にだったし、俺も80歳...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        あなたは自分はそんなに長気しないから 大丈夫と根拠のない自信を持っていません か?親父も早にだったし、俺も80歳...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -38147,11 +38210,11 @@ PTA保険委員長に言われた時も自動相談
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -38479,8 +38542,8 @@ FPは静かに言いました。では85歳で
                     <div class="card-title-row">【漫画】40代50代の「賢い」リベンジ退職。退職金1500万と大口顧客を総取りし、AI信者の社長を絶望させた氷河期世代の逆転劇【大人の生存戦略】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：社長、お見事です。年度末の決算、過去 最高駅を達成いたしました。役員会議室に 響く完成。その報告を聞いた社長は満足に...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        社長、お見事です。年度末の決算、過去 最高駅を達成いたしました。役員会議室に 響く完成。その報告を聞いた社長は満足に...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -38502,11 +38565,11 @@ FPは静かに言いました。では85歳で
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -38954,8 +39017,8 @@ AIがどれほど進化しようとあなた方が
                     <div class="card-title-row">朝イチで「スマホ」を見る人は一生貧乏です。老後にお金に困らない人が密かにやっている朝の魔法の習慣5選</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：朝、目が覚めた瞬間、あなたが最初に 考えることは何ですか?ああ、今日もまた 節約しなきゃ。来月の電気代行ったり...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        朝、目が覚めた瞬間、あなたが最初に 考えることは何ですか?ああ、今日もまた 節約しなきゃ。来月の電気代行ったり...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -38977,11 +39040,11 @@ AIがどれほど進化しようとあなた方が
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -39454,8 +39517,8 @@ SNSで誰かに自慢するための旅行では
                     <div class="card-title-row">「サイズ合わないならメルカリで売りますｗ」出産祝いを笑う嫁。しかし落ちた母子手帳の日付を見た私「…この子、誰の子？」</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：窓の外を見ると空が急に暗くなっていた。 横浜の湾ン岸線を走る車のフロントガラス を大粒の雨が激しく叩き始めた。まるで...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        窓の外を見ると空が急に暗くなっていた。 横浜の湾ン岸線を走る車のフロントガラス を大粒の雨が激しく叩き始めた。まるで...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -39477,11 +39540,11 @@ SNSで誰かに自慢するための旅行では
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -40261,8 +40324,8 @@ DNA鑑定をしよう。それで全部はっきり
                     <div class="card-title-row">「年金月5万の底辺老人w」と私を見下す隣人。実は私が『隣人の住むマンションのオーナー』だと知った結果、顔面蒼白になり…</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：ひよの朝は痛みと共に始まる。午前5時半 、古い目覚まし時計がじリじリとなる前に 膝の奥で鈍い痛みが警報を鳴らした。冬の...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        ひよの朝は痛みと共に始まる。午前5時半 、古い目覚まし時計がじリじリとなる前に 膝の奥で鈍い痛みが警報を鳴らした。冬の...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -40284,11 +40347,11 @@ DNA鑑定をしよう。それで全部はっきり
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -40764,8 +40827,8 @@ DNA鑑定をしよう。それで全部はっきり
                     <div class="card-title-row">「お腹すいた…」廃業寸前の孤児院に捨てられた少女に、ヤクザの息子が毎日弁当を届けていた→15年後、再会した瞬間…彼が差し出した“1つの箱”で全員が凍りついた【朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：大阪の高街にひという名の小さな個人員が あった。その静寂の中に10歳の花がいた 。花がここに預けられたのは春が...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        大阪の高街にひという名の小さな個人員が あった。その静寂の中に10歳の花がいた 。花がここに預けられたのは春が...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -40787,11 +40850,11 @@ DNA鑑定をしよう。それで全部はっきり
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -41414,8 +41477,8 @@ DNA鑑定をしよう。それで全部はっきり
                     <div class="card-title-row">「生きたければ、かつらを被りなさい！」12歳の天才孤児の少女の叫びに、大財閥の会長が女性用かつらを被って身を隠した衝撃展開【感動する話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：この物語は1週間前に遡ります。その時は 誰も知りませんでした。あの日の小さな 屈辱がいつかどんな奇跡になるのか。明方...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        この物語は1週間前に遡ります。その時は 誰も知りませんでした。あの日の小さな 屈辱がいつかどんな奇跡になるのか。明方...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -41437,11 +41500,11 @@ DNA鑑定をしよう。それで全部はっきり
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -42112,8 +42175,8 @@ DNA鑑定をしよう。それで全部はっきり
                     <div class="card-title-row">会長の娘と貧乏な学生が1週間人生を交換した結果▶起きた奇跡...【感動する話】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：1週間だけ私と人生を交換しませんか? そういったのは日本有数の大財閥の例でした。そしてその言葉を向けられたのは夜勤で働く...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        1週間だけ私と人生を交換しませんか? そういったのは日本有数の大財閥の例でした。そしてその言葉を向けられたのは夜勤で働く...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -42135,11 +42198,11 @@ DNA鑑定をしよう。それで全部はっきり
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -43206,8 +43269,8 @@ DNA鑑定をしよう。それで全部はっきり
                     <div class="card-title-row">【修羅場】同窓会帰り「加齢臭ババアは台所で寝ろw」と元カノを家に連れ込む夫。深夜、私が送信した『一通のメール』でエリート夫の人生が完全に終了し…【復讐】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：冷たいフローリングの床に膝をつき、稽古 65歳は固く絞った雑巾で廊下を磨いてい た。その瞬間太もの裏からふハぎにかけて...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        冷たいフローリングの床に膝をつき、稽古 65歳は固く絞った雑巾で廊下を磨いてい た。その瞬間太もの裏からふハぎにかけて...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -43229,11 +43292,11 @@ DNA鑑定をしよう。それで全部はっきり
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -43610,8 +43673,8 @@ LINEグループにも同じデータを送信
                     <div class="card-title-row">夫のスマホに見知らぬ女との旅行写真。問い詰めると「合成だ」と言い張る夫。私が探偵を雇って集めた『動かぬ証拠』を突きつけた日【サレ妻】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：いた思わず口をついて出た埋めき声は誰に 聞かれることもなく冷たいアスファルトに 吸い込まれていったスーパーからの帰り道...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        いた思わず口をついて出た埋めき声は誰に 聞かれることもなく冷たいアスファルトに 吸い込まれていったスーパーからの帰り道...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -43633,11 +43696,11 @@ LINEグループにも同じデータを送信
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -44081,8 +44144,8 @@ LINEグループにも同じデータを送信
                     <div class="card-title-row">【シニア恋愛】「毎朝、同じベッド」58歳の女主人と下宿の30代男性…あの夜の秘密</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：夜明けの午前4時、私は目を覚ましました 。ゆや、もう座ってるの?彼の腕が私の腰 に回されました。温かい体温が背中を...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        夜明けの午前4時、私は目を覚ましました 。ゆや、もう座ってるの?彼の腕が私の腰 に回されました。温かい体温が背中を...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -44104,11 +44167,11 @@ LINEグループにも同じデータを送信
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -45182,8 +45245,8 @@ LINEグループにも同じデータを送信
                     <div class="card-title-row">【シニア恋愛】【実話】「3億5千万円で買われました」70代大富豪の契約に縛られた家政婦…その夜、運転手が私の部屋に｜黄昏の恋｜感動実話｜オーディオブック</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：3500万円よ。手付金は今すぐ支払わ れるし、 毎月100万円ずつ振り込む。だけど条件...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        3500万円よ。手付金は今すぐ支払わ れるし、 毎月100万円ずつ振り込む。だけど条件...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -45205,11 +45268,11 @@ LINEグループにも同じデータを送信
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -46685,8 +46748,8 @@ LINEグループにも同じデータを送信
                     <div class="card-title-row">【シニア恋愛】「キム運転手…もう我慢できない」夫を亡くした財閥未亡人を支えた独身の運転手キム</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：山下さん、そのようなことはおやめ ください。彼は低い声で言いました。いつ もの落ち着いた声とは違いました。15...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        山下さん、そのようなことはおやめ ください。彼は低い声で言いました。いつ もの落ち着いた声とは違いました。15...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -46708,11 +46771,11 @@ LINEグループにも同じデータを送信
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -48313,8 +48376,8 @@ LINEグループにも同じデータを送信
                     <div class="card-title-row">【泣ける熟年離婚】「初めて人として愛された…」家庭内別居の果てに60代妻が気づいた“本当の幸せ”と、涙が止まらない切ない結末【シニア朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：64にもなって男と3階だとこの知らずが リビングで怒鳴りチラス70歳の夫げを 対象的にソファニス悪妻子の瞳からは静か...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        64にもなって男と3階だとこの知らずが リビングで怒鳴りチラス70歳の夫げを 対象的にソファニス悪妻子の瞳からは静か...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -48336,11 +48399,11 @@ LINEグループにも同じデータを送信
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -48682,8 +48745,8 @@ LINEグループにも同じデータを送信
                     <div class="card-title-row">【老後破産の恐怖】通帳を見て愕然！「年金18万円のはずが残り3万円に…」消えたお金の行方と、70代夫婦の残酷すぎる末路！？【シニア朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：通長の残高は3万2418円[音楽] 。 おかしい。何かの間違いよね。...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        通長の残高は3万2418円[音楽] 。 おかしい。何かの間違いよね。...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -48705,11 +48768,11 @@ LINEグループにも同じデータを送信
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
@@ -49165,8 +49228,8 @@ CMが流れている。
                     <div class="card-title-row">【痛快修羅場】遺産目当てで父を「ゴミ」と罵倒した外道な弟夫婦。ニヤニヤしながら遺言書を開封し…顔面蒼白の大パニックになる衝撃の末路！？【朗読】</div>
                     
                     <div class="card-analysis-preview">
-                        <strong>分析ダイジェスト（TODO）:</strong><br>
-                        ※NotebookLMでの分析前です。（字幕プレビュー：姉さん、さっさと実員をしなよ。これでも音量かけてやってるんだからさ。 目の前で弟も田中孝太がニヤニヤと笑いながら書類を突...）
+                        <strong>AI構成ダイジェスト:</strong><br>
+                        姉さん、さっさと実員をしなよ。これでも音量かけてやってるんだからさ。 目の前で弟も田中孝太がニヤニヤと笑いながら書類を突...
                     </div>
                 </div>
                 <div style="margin-top: 12px; font-size:12px; color:var(--gold-dim); text-align:right;">
@@ -49188,11 +49251,11 @@ CMが流れている。
                 </div>
             </div>
             
-            <div class="section-title">構成分析メモ</div>
+            <div class="section-title">AI構成分析メモ</div>
             <div class="analysis-box">
-                <p><strong>【フックの構造】</strong> - </p>
-                <p><strong>【物語モデル】</strong> - </p>
-                <p><strong>【全体所感】</strong> - （※後ほどテキストを一括で投入し、自動生成された分析結果をここに表示します）</p>
+                <p><strong>【フックの構造】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【物語モデル】</strong> - （AI構成分析：未実行）</p>
+                <p><strong>【対立構造・所感】</strong> - （AI構成分析：未実行）</p>
             </div>
             
             <div class="section-title">抽出字幕テキスト（全文）</div>
