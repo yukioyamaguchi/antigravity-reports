@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antigravity — YouTube Analysis</title>
+<title>Antigravity — YouTube Analysis & Course Workflow</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -55,7 +55,8 @@
   .tabs {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
     margin: 24px 16px 0;
     border-bottom: 1px solid var(--card-border);
     padding-bottom: 12px;
@@ -63,7 +64,7 @@
   .tab-item {
     padding: 8px 16px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     cursor: pointer;
     background: transparent;
@@ -98,6 +99,92 @@
     margin-right: auto;
   }
   
+  /* Workflow Container */
+  .workflow-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 12px;
+  }
+  .step-number {
+    background: var(--gold);
+    color: var(--bg);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .step-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .step-content {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+  .step-content strong {
+    color: var(--text);
+  }
+  .step-content ul {
+    margin-top: 12px;
+    padding-left: 20px;
+  }
+  .step-content li {
+    margin-bottom: 8px;
+  }
+  
+  /* Tips Container */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .tip-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .tip-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .tip-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .tip-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
   /* 1列・横型のカードレイアウト */
   .card-horizontal {
     background: var(--card);
@@ -115,7 +202,6 @@
     border-color: var(--gold-dim);
   }
   
-  /* サムネイルを全部見えるように（contain指定、背景黒） */
   .card-img-container {
     width: 280px;
     min-width: 280px;
@@ -314,7 +400,7 @@
 <div id="authGate">
   <div style="text-align:center;">
     <div style="font-size:14px; font-weight:300; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:8px;">Antigravity</div>
-    <div style="font-size:20px; font-weight:700;">YouTube Analysis Report</div>
+    <div style="font-size:20px; font-weight:700;">YouTube Analysis & Workflow</div>
     <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">閲覧にはパスワードが必要です</div>
   </div>
   <div style="display:flex; gap:8px; width:100%; max-width:320px;">
@@ -327,19 +413,117 @@
 <div id="mainContent" style="display:none;">
     <div class="header">
         <h1>Antigravity</h1>
-        <div class="title">異常値動画 構成分析一覧</div>
-        <div class="subtitle">シニア系ベンチマーク・異常値（TOP再生）および通常動画データベース</div>
+        <div class="title">シニア系YouTube 構成分析 ＆ 運用ワークフロー</div>
+        <div class="subtitle">異常値・通常動画比較データベース / チャネル構築の手順書</div>
     </div>
     
     <div class="tabs">
-      <button class="tab-item active" onclick="switchTab('anomaly')">📈 異常値（バズ）一覧</button>
+      <button class="tab-item active" onclick="switchTab('workflow')">🗺️ 講座：チャンネル構築の進め方</button>
+      <button class="tab-item" onclick="switchTab('anomaly')">📈 異常値（バズ）動画一覧</button>
       <button class="tab-item" onclick="switchTab('normal')">📉 回らなかった動画（比較用）</button>
+      <button class="tab-item" onclick="switchTab('tips')">💡 制作Tips・ノウハウ集</button>
     </div>
     
-    <div id="tab-anomaly" class="tab-content active">
+    <!-- タブ１：講座の進め方 -->
+    <div id="tab-workflow" class="tab-content active">
+      <div class="workflow-container">
+          <div class="section-title" style="margin-top: 0;">🚀 YouTubeチャンネル（シニア朗読系）構築フロー</div>
+          <p style="color:var(--text-dim); font-size:14px; margin-bottom: 32px; line-height: 1.6;">
+            このデータベースを活用して、ゼロからシニア系朗読チャンネルを立ち上げ、成功確率を高めるための「戦略的ステップ」を順番に解説します。
+          </p>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">1</div>
+                  <div class="step-title">異常値（バズ）動画のリストアップと構造化分析</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  まずは先人の「成功パターン（異常に再生が回った動画）」をリストアップします（※本ページの「異常値動画一覧」にあたります）。その後、AIツール（NotebookLMなど）に字幕を突っ込んで、何が視聴者の心を掴んだのか「フック（冒頭）」と「物語モデル（起承転結・対立構造）」を丸裸にします。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>このページにある「異常値動画一覧」から数本を選びます。</li>
+                      <li>その字幕データをフルコピーし、NotebookLM等のAIに貼り付けます。</li>
+                      <li>「この動画が想定読者（シニア層）に刺さった理由を、冒頭5秒のフックと、全体を通した対立構造（例: 嫁 vs 姑）から分析して」とプロンプトで指示します。</li>
+                      <li>出力された分析結果を、構成の「型」としてストックしていきます。</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">2</div>
+                  <div class="step-title">回らなかった動画（通常/失敗）との比較検証</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  「異常値動画」だけを見ていても、何が真の成功要因かは分かりません。同じチャンネルの「回らなかった動画」と比較することで、「タイトル・サムネイル・冒頭の展開」における【ダメなパターン】を炙り出します。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>本ページの「回らなかった動画一覧」の字幕を開きます。</li>
+                      <li>異常値の動画と見比べ、「テンポが遅いか？」「主人公への共感が薄いか？」「サムネイルの文字が弱いか？」等の違いを仮説立てます。</li>
+                      <li>AIに両方のテキストを投げ、「なぜAは成功して、Bは失敗したのか、違いを抽出して」と頼むと効率的です。</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">3</div>
+                  <div class="step-title">テーマ・企画の決定（勝ち馬に乗る）</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  一からのオリジナル企画は作らず、ステップ1・2で見つけた「証明済みのコンセプト（例：年金月〇万、熟年離婚、冷たい家族へのスカッと）」をベースに企画を決めます。視聴者の痛みに最も寄り添うテーマを選定します。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>異常値のタイトルから、特に反応の良い「パワーワード（例: 寄生虫、孤独死、底辺）」を抽出します。</li>
+                      <li>それを組み合わせて新しいタイトル案とサムネイル案から先に作ります（5Dの原則）。</li>
+                      <li>サムネイルとタイトルが完成し、面白いと思えたら台本の制作に進みます。</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">4</div>
+                  <div class="step-title">プロット作成 ＆ 台本ジェネレート（AI）</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  ストックした構成の「型」と「テーマ」をAI（Gemini/Claude）に投入し、台本の下書きを生成します。その後、人間が「シニア特有の生々しい感情」や「スカッと感」のトーン調整を行います。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>AIへのプロンプト例：「あなたは60代のシニア向けYouTubeの台本作家です。以下の構成（起承転結）とテーマ『〇〇』に従い、一人称視点の朗読劇となる5,000文字の台本を作成してください。」</li>
+                      <li>AIの出力をそのまま使わず、「人間味のある言い回し」「理不尽な悪役のセリフの強化」などを手直しします。</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number">5</div>
+                  <div class="step-title">音声化・動画編集・収益化対策を施して公開</div>
+              </div>
+              <div class="step-content">
+                  <strong>【概要】</strong><br>
+                  生成した台本を音声化（TTS等）し、動画に差し込みます。YouTubeの「再利用されたコンテンツ（スパム）」判定を回避するため、単なる静止画ではなく、独自の動きや付加価値をつける必要があります。<br><br>
+                  <strong>【細かいやり方】</strong>
+                  <ul>
+                      <li>AI音声（VOICEPEAK、VoiceVox、あるいはQwen3-TTSなど）を使用して朗読化します。</li>
+                      <li>動画編集では、背景に動画素材（Pexelsなど）を使い、テキストがスクロールするなどの動きをつけます。</li>
+                      <li>ワイプ（実写のフリー素材がうなずいている映像）などを画面角に入れると、独自性が担保されやすくなります（※詳しくはTipsタブ参照）。</li>
+                      <li>完成後、クリック率（CTR）と視聴維持率を計測し、ステップ1からのサイクルを回し続けます。</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+    <!-- タブ２：異常値動画 -->
+    <div id="tab-anomaly" class="tab-content">
       <div class="list-container">
           
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('zTKhE_x4ER0')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/zTKhE_x4ER0/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -367,7 +551,6 @@
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-zTKhE_x4ER0">
             <button class="dialog-close" onclick="closeDialog('zTKhE_x4ER0')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -392,7 +575,6 @@
             <pre>まだ文字起こしがありません。手動での抽出が必要です。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('Ab8B2B9_iRI')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/Ab8B2B9_iRI/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -420,7 +602,6 @@
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-Ab8B2B9_iRI">
             <button class="dialog-close" onclick="closeDialog('Ab8B2B9_iRI')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -445,7 +626,6 @@
             <pre>まだ文字起こしがありません。手動での抽出が必要です。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('Ksy6ShOCarU')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/Ksy6ShOCarU/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -473,7 +653,6 @@
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-Ksy6ShOCarU">
             <button class="dialog-close" onclick="closeDialog('Ksy6ShOCarU')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -498,7 +677,6 @@
             <pre>まだ文字起こしがありません。手動での抽出が必要です。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('rpNucmFOqmc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/rpNucmFOqmc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -526,7 +704,6 @@
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-rpNucmFOqmc">
             <button class="dialog-close" onclick="closeDialog('rpNucmFOqmc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -887,7 +1064,6 @@
 動画でお会いしましょう。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('27gSwrzsTaw')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/27gSwrzsTaw/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -915,7 +1091,6 @@
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-27gSwrzsTaw">
             <button class="dialog-close" onclick="closeDialog('27gSwrzsTaw')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -1265,7 +1440,6 @@
 いただきありがとうございました。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('aKd2qjIgGbQ')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/aKd2qjIgGbQ/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -1293,7 +1467,6 @@
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-aKd2qjIgGbQ">
             <button class="dialog-close" onclick="closeDialog('aKd2qjIgGbQ')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -1884,7 +2057,6 @@ Sで月に1000円ちょっと。食事は完全
 会いしましょう。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('WKVvEXjzczA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/WKVvEXjzczA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -1912,7 +2084,6 @@ Sで月に1000円ちょっと。食事は完全
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-WKVvEXjzczA">
             <button class="dialog-close" onclick="closeDialog('WKVvEXjzczA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -2221,7 +2392,6 @@ Sで月に1000円ちょっと。食事は完全
 ございました。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('VG7bhio-hrI')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/VG7bhio-hrI/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -2249,7 +2419,6 @@ Sで月に1000円ちょっと。食事は完全
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-VG7bhio-hrI">
             <button class="dialog-close" onclick="closeDialog('VG7bhio-hrI')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -2654,7 +2823,6 @@ CDをかけ、レースのテーブルクロスを
 の老語が明るく前向きになりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('Ix---qb1AUA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/Ix---qb1AUA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -2682,7 +2850,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-Ix---qb1AUA">
             <button class="dialog-close" onclick="closeDialog('Ix---qb1AUA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -3197,7 +3364,6 @@ CDをかけ、レースのテーブルクロスを
 ましょう。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('mUcy8RApmyM')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/mUcy8RApmyM/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -3225,7 +3391,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-mUcy8RApmyM">
             <button class="dialog-close" onclick="closeDialog('mUcy8RApmyM')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -3546,7 +3711,6 @@ CDをかけ、レースのテーブルクロスを
 本当にありがとうございました。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('DSXZj93_R-k')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/DSXZj93_R-k/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -3574,7 +3738,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-DSXZj93_R-k">
             <button class="dialog-close" onclick="closeDialog('DSXZj93_R-k')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -3599,7 +3762,6 @@ CDをかけ、レースのテーブルクロスを
             <pre>まだ文字起こしがありません。手動での抽出が必要です。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('l56_AkQ-zF8')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/l56_AkQ-zF8/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -3627,7 +3789,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-l56_AkQ-zF8">
             <button class="dialog-close" onclick="closeDialog('l56_AkQ-zF8')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -3941,7 +4102,6 @@ CDをかけ、レースのテーブルクロスを
 今日よりもっと輝きますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('5RcJAdVi32g')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/5RcJAdVi32g/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -3969,7 +4129,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-5RcJAdVi32g">
             <button class="dialog-close" onclick="closeDialog('5RcJAdVi32g')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -4331,7 +4490,6 @@ CDをかけ、レースのテーブルクロスを
 会いしましょう。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('OXk1seYnA3w')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/OXk1seYnA3w/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -4359,7 +4517,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-OXk1seYnA3w">
             <button class="dialog-close" onclick="closeDialog('OXk1seYnA3w')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -4384,7 +4541,6 @@ CDをかけ、レースのテーブルクロスを
             <pre>まだ文字起こしがありません。手動での抽出が必要です。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('AjYNh_wE8UA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/AjYNh_wE8UA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -4412,7 +4568,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-AjYNh_wE8UA">
             <button class="dialog-close" onclick="closeDialog('AjYNh_wE8UA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -4751,7 +4906,6 @@ CDをかけ、レースのテーブルクロスを
 も日常は確かに続いていく。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('C9gyLF2hf1A')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/C9gyLF2hf1A/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -4779,7 +4933,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-C9gyLF2hf1A">
             <button class="dialog-close" onclick="closeDialog('C9gyLF2hf1A')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -5097,7 +5250,6 @@ CDをかけ、レースのテーブルクロスを
 ますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('Z2YWFviY-pQ')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/Z2YWFviY-pQ/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -5125,7 +5277,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-Z2YWFviY-pQ">
             <button class="dialog-close" onclick="closeDialog('Z2YWFviY-pQ')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -5455,7 +5606,6 @@ CDをかけ、レースのテーブルクロスを
 穏やかでありますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('wHOXX5LbsXA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/wHOXX5LbsXA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -5483,7 +5633,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-wHOXX5LbsXA">
             <button class="dialog-close" onclick="closeDialog('wHOXX5LbsXA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -6132,7 +6281,6 @@ CDをかけ、レースのテーブルクロスを
 に。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('PJt0CSo-Loc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/PJt0CSo-Loc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -6160,7 +6308,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-PJt0CSo-Loc">
             <button class="dialog-close" onclick="closeDialog('PJt0CSo-Loc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -7346,7 +7493,6 @@ CDをかけ、レースのテーブルクロスを
 。私のように</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('WvBUiwODFOA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/WvBUiwODFOA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -7374,7 +7520,6 @@ CDをかけ、レースのテーブルクロスを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-WvBUiwODFOA">
             <button class="dialog-close" onclick="closeDialog('WvBUiwODFOA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -8039,7 +8184,6 @@ MBA出身者たちでも2日はかかる問題を
 ことを。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('y-CgdLtYXS4')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/y-CgdLtYXS4/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -8067,7 +8211,6 @@ MBA出身者たちでも2日はかかる問題を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-y-CgdLtYXS4">
             <button class="dialog-close" onclick="closeDialog('y-CgdLtYXS4')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -8980,7 +9123,6 @@ MBA出身者たちでも2日はかかる問題を
 です。それで十分な人生でした。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('uxI-zKcwV_E')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/uxI-zKcwV_E/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -9008,7 +9150,6 @@ MBA出身者たちでも2日はかかる問題を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-uxI-zKcwV_E">
             <button class="dialog-close" onclick="closeDialog('uxI-zKcwV_E')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -9555,7 +9696,6 @@ MBA出身者たちでも2日はかかる問題を
 ますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('fxh0RIWK_tM')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/fxh0RIWK_tM/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -9583,7 +9723,6 @@ MBA出身者たちでも2日はかかる問題を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-fxh0RIWK_tM">
             <button class="dialog-close" onclick="closeDialog('fxh0RIWK_tM')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -10164,7 +10303,6 @@ MBA出身者たちでも2日はかかる問題を
 ますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('JgXgpNsWIig')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/JgXgpNsWIig/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -10192,7 +10330,6 @@ MBA出身者たちでも2日はかかる問題を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-JgXgpNsWIig">
             <button class="dialog-close" onclick="closeDialog('JgXgpNsWIig')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -10933,7 +11070,6 @@ MBA出身者たちでも2日はかかる問題を
 今日も素敵な1日になりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('knMk6huNS0A')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/knMk6huNS0A/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -10961,7 +11097,6 @@ MBA出身者たちでも2日はかかる問題を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-knMk6huNS0A">
             <button class="dialog-close" onclick="closeDialog('knMk6huNS0A')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -11567,7 +11702,6 @@ GTPの数値は480、基準値は50以下
 が次の動画を作る力になります。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('6YFMkIfLIbc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/6YFMkIfLIbc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -11595,7 +11729,6 @@ GTPの数値は480、基準値は50以下
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-6YFMkIfLIbc">
             <button class="dialog-close" onclick="closeDialog('6YFMkIfLIbc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -12203,7 +12336,6 @@ GTPの数値は480、基準値は50以下
 自分からそう言った。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('bnEXzwnKhM4')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/bnEXzwnKhM4/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -12231,7 +12363,6 @@ GTPの数値は480、基準値は50以下
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-bnEXzwnKhM4">
             <button class="dialog-close" onclick="closeDialog('bnEXzwnKhM4')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -12978,7 +13109,6 @@ GTPの数値は480、基準値は50以下
 続けるでしょう。いつまでも</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('sljy56e_ZVQ')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/sljy56e_ZVQ/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -13006,7 +13136,6 @@ GTPの数値は480、基準値は50以下
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-sljy56e_ZVQ">
             <button class="dialog-close" onclick="closeDialog('sljy56e_ZVQ')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -13483,7 +13612,6 @@ GTPの数値は480、基準値は50以下
 に。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('hNnLTkRI_W8')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/hNnLTkRI_W8/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -13511,7 +13639,6 @@ GTPの数値は480、基準値は50以下
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-hNnLTkRI_W8">
             <button class="dialog-close" onclick="closeDialog('hNnLTkRI_W8')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -14038,7 +14165,6 @@ AI運用型グローバル俳優債権ファンドを
 はまた次の心の初方戦でお会いし</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('8VuFm1pKYv4')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/8VuFm1pKYv4/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -14066,7 +14192,6 @@ AI運用型グローバル俳優債権ファンドを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-8VuFm1pKYv4">
             <button class="dialog-close" onclick="closeDialog('8VuFm1pKYv4')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -15421,7 +15546,6 @@ AI運用型グローバル俳優債権ファンドを
 たあの時間を胸に抱い</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('U0bgZMVOJK0')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/U0bgZMVOJK0/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -15449,7 +15573,6 @@ AI運用型グローバル俳優債権ファンドを
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-U0bgZMVOJK0">
             <button class="dialog-close" onclick="closeDialog('U0bgZMVOJK0')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -15978,7 +16101,6 @@ DK日当たり良行
 ます。それではまた次回の動画でお会いし</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('9Y5DsDXuAAA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/9Y5DsDXuAAA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -16006,7 +16128,6 @@ DK日当たり良行
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-9Y5DsDXuAAA">
             <button class="dialog-close" onclick="closeDialog('9Y5DsDXuAAA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -16381,7 +16502,6 @@ DK日当たり良行
 ますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('P9fFVHKDuxs')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/P9fFVHKDuxs/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -16409,7 +16529,6 @@ DK日当たり良行
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-P9fFVHKDuxs">
             <button class="dialog-close" onclick="closeDialog('P9fFVHKDuxs')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -17007,7 +17126,6 @@ SNSで動画を発信するだけで[音楽]
 日になりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('BPtvOF-PiXU')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/BPtvOF-PiXU/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -17035,7 +17153,6 @@ SNSで動画を発信するだけで[音楽]
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-BPtvOF-PiXU">
             <button class="dialog-close" onclick="closeDialog('BPtvOF-PiXU')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -18158,7 +18275,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
 た会があったのだ</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('t8VVnm5m6wA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/t8VVnm5m6wA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -18186,7 +18302,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-t8VVnm5m6wA">
             <button class="dialog-close" onclick="closeDialog('t8VVnm5m6wA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -18620,7 +18735,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
 事実だった。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('ls3JcqijJEE')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/ls3JcqijJEE/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -18648,7 +18762,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-ls3JcqijJEE">
             <button class="dialog-close" onclick="closeDialog('ls3JcqijJEE')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -19247,7 +19360,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
 でください。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('STDH7g5A-W4')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/STDH7g5A-W4/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -19275,7 +19387,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-STDH7g5A-W4">
             <button class="dialog-close" onclick="closeDialog('STDH7g5A-W4')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -20106,7 +20217,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
 今日も素敵な1日になりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('e7QNYX7-xGA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/e7QNYX7-xGA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -20134,7 +20244,6 @@ Tシャツ1枚だけを身につけた彼女が膝を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-e7QNYX7-xGA">
             <button class="dialog-close" onclick="closeDialog('e7QNYX7-xGA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -21629,7 +21738,6 @@ A
 本当の愛でした。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('w2AM4T-QfZE')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/w2AM4T-QfZE/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -21657,7 +21765,6 @@ A
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-w2AM4T-QfZE">
             <button class="dialog-close" onclick="closeDialog('w2AM4T-QfZE')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -22920,7 +23027,6 @@ A
 皆様が健康で幸せな1日を送られますよう</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('Ss_cwlP-hKI')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/Ss_cwlP-hKI/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -22948,7 +23054,6 @@ A
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-Ss_cwlP-hKI">
             <button class="dialog-close" onclick="closeDialog('Ss_cwlP-hKI')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -24082,7 +24187,6 @@ A
 の光となることを願っ</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('7hRyT0uqFUw')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/7hRyT0uqFUw/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -24110,7 +24214,6 @@ A
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-7hRyT0uqFUw">
             <button class="dialog-close" onclick="closeDialog('7hRyT0uqFUw')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -25862,7 +25965,6 @@ Wi-Fi型の隠しカメラだ。電源が
 ありがとうございました。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('N_b5O4XwpQc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/N_b5O4XwpQc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -25890,7 +25992,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-N_b5O4XwpQc">
             <button class="dialog-close" onclick="closeDialog('N_b5O4XwpQc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -26615,7 +26716,6 @@ Wi-Fi型の隠しカメラだ。電源が
 。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('fDINJTzp4Fg')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/fDINJTzp4Fg/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -26643,7 +26743,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-fDINJTzp4Fg">
             <button class="dialog-close" onclick="closeDialog('fDINJTzp4Fg')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -26990,7 +27089,6 @@ Wi-Fi型の隠しカメラだ。電源が
 それだけを確かめるように静かに息を整え</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('eQbxPh8ZrNA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/eQbxPh8ZrNA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -27018,7 +27116,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-eQbxPh8ZrNA">
             <button class="dialog-close" onclick="closeDialog('eQbxPh8ZrNA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -27043,7 +27140,6 @@ Wi-Fi型の隠しカメラだ。電源が
             <pre>まだ文字起こしがありません。手動での抽出が必要です。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('bL2QER_1vxU')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/bL2QER_1vxU/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -27071,7 +27167,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-bL2QER_1vxU">
             <button class="dialog-close" onclick="closeDialog('bL2QER_1vxU')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -27980,7 +28075,6 @@ Wi-Fi型の隠しカメラだ。電源が
 ますよう。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('_3LLnTR9T7E')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/_3LLnTR9T7E/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -28008,7 +28102,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-_3LLnTR9T7E">
             <button class="dialog-close" onclick="closeDialog('_3LLnTR9T7E')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -28525,7 +28618,6 @@ Wi-Fi型の隠しカメラだ。電源が
 平穏というものなのだ。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('jHBM_o1TSG0')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/jHBM_o1TSG0/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -28553,7 +28645,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-jHBM_o1TSG0">
             <button class="dialog-close" onclick="closeDialog('jHBM_o1TSG0')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -29320,7 +29411,6 @@ Wi-Fi型の隠しカメラだ。電源が
 今日も一緒に笑いながら歩いて行きます。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('SCrXj-kMQvc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/SCrXj-kMQvc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -29348,7 +29438,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-SCrXj-kMQvc">
             <button class="dialog-close" onclick="closeDialog('SCrXj-kMQvc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -30721,7 +30810,6 @@ Wi-Fi型の隠しカメラだ。電源が
 乗り越えることができるから。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('gO-mKMTYW-4')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/gO-mKMTYW-4/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -30749,7 +30837,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-gO-mKMTYW-4">
             <button class="dialog-close" onclick="closeDialog('gO-mKMTYW-4')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -31115,7 +31202,6 @@ Wi-Fi型の隠しカメラだ。電源が
 へでも歩いていける気がした。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('eGAZ8Bc7fug')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/eGAZ8Bc7fug/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -31143,7 +31229,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-eGAZ8Bc7fug">
             <button class="dialog-close" onclick="closeDialog('eGAZ8Bc7fug')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -31497,7 +31582,6 @@ Wi-Fi型の隠しカメラだ。電源が
 ここから始まるのだ。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('wyZthJPqAQI')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/wyZthJPqAQI/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -31525,7 +31609,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-wyZthJPqAQI">
             <button class="dialog-close" onclick="closeDialog('wyZthJPqAQI')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -31855,7 +31938,6 @@ Wi-Fi型の隠しカメラだ。電源が
 本当の人生は今日ここから始まるのだ。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('c_h-sPmaE24')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/c_h-sPmaE24/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -31883,7 +31965,6 @@ Wi-Fi型の隠しカメラだ。電源が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-c_h-sPmaE24">
             <button class="dialog-close" onclick="closeDialog('c_h-sPmaE24')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -32303,7 +32384,6 @@ DVの証拠、そしてあの日手術を拒否した
 。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('6WFnePKggWU')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/6WFnePKggWU/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -32331,7 +32411,6 @@ DVの証拠、そしてあの日手術を拒否した
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-6WFnePKggWU">
             <button class="dialog-close" onclick="closeDialog('6WFnePKggWU')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -32758,7 +32837,6 @@ Tバッグの紅茶だ。いただきます。手を
 も目を覚すことなく眠り続け。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('J07aL76o6VI')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/J07aL76o6VI/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -32786,7 +32864,6 @@ Tバッグの紅茶だ。いただきます。手を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-J07aL76o6VI">
             <button class="dialog-close" onclick="closeDialog('J07aL76o6VI')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -33211,7 +33288,6 @@ Tバッグの紅茶だ。いただきます。手を
 だったのね。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('zdWVjMexz3s')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/zdWVjMexz3s/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -33239,7 +33315,6 @@ Tバッグの紅茶だ。いただきます。手を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-zdWVjMexz3s">
             <button class="dialog-close" onclick="closeDialog('zdWVjMexz3s')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -33683,7 +33758,6 @@ Tバッグの紅茶だ。いただきます。手を
 た。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('BSqndf8f_Oo')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/BSqndf8f_Oo/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -33711,7 +33785,6 @@ Tバッグの紅茶だ。いただきます。手を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-BSqndf8f_Oo">
             <button class="dialog-close" onclick="closeDialog('BSqndf8f_Oo')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -34104,7 +34177,6 @@ Tバッグの紅茶だ。いただきます。手を
 人生で最も幸福な時間を味わっていた。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('tN6RXlKBgrc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/tN6RXlKBgrc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -34132,7 +34204,6 @@ Tバッグの紅茶だ。いただきます。手を
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-tN6RXlKBgrc">
             <button class="dialog-close" onclick="closeDialog('tN6RXlKBgrc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -34561,7 +34632,6 @@ LINEの通知が届く。孫の皮膚と体。お
 また次の動画でお会いしましょう。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('rh9uR0LdauE')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/rh9uR0LdauE/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -34589,7 +34659,6 @@ LINEの通知が届く。孫の皮膚と体。お
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-rh9uR0LdauE">
             <button class="dialog-close" onclick="closeDialog('rh9uR0LdauE')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -34962,7 +35031,6 @@ LINEの通知が届く。孫の皮膚と体。お
 ましょう。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('Ss8QUm-Sk1w')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/Ss8QUm-Sk1w/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -34990,7 +35058,6 @@ LINEの通知が届く。孫の皮膚と体。お
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-Ss8QUm-Sk1w">
             <button class="dialog-close" onclick="closeDialog('Ss8QUm-Sk1w')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -35339,10 +35406,10 @@ LINEの通知が届く。孫の皮膚と体。お
       </div>
     </div>
     
+    <!-- タブ３：通常・失敗動画 -->
     <div id="tab-normal" class="tab-content">
       <div class="list-container">
           
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('mA_lMZeDdiY')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/mA_lMZeDdiY/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -35370,7 +35437,6 @@ LINEの通知が届く。孫の皮膚と体。お
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-mA_lMZeDdiY">
             <button class="dialog-close" onclick="closeDialog('mA_lMZeDdiY')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -36038,7 +36104,6 @@ LINEの通知が届く。孫の皮膚と体。お
 日になりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('iYODJpNUsJ4')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/iYODJpNUsJ4/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -36066,7 +36131,6 @@ LINEの通知が届く。孫の皮膚と体。お
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-iYODJpNUsJ4">
             <button class="dialog-close" onclick="closeDialog('iYODJpNUsJ4')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -36412,7 +36476,6 @@ LINEの通知が届く。孫の皮膚と体。お
 ありがとうございました。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('qsYcSHyWYeE')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/qsYcSHyWYeE/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -36440,7 +36503,6 @@ LINEの通知が届く。孫の皮膚と体。お
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-qsYcSHyWYeE">
             <button class="dialog-close" onclick="closeDialog('qsYcSHyWYeE')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -37174,7 +37236,6 @@ LINEの通知が届く。孫の皮膚と体。お
 今日も素敵な1日になりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('-WX08K8kTGE')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/-WX08K8kTGE/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -37202,7 +37263,6 @@ LINEの通知が届く。孫の皮膚と体。お
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog--WX08K8kTGE">
             <button class="dialog-close" onclick="closeDialog('-WX08K8kTGE')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -37579,7 +37639,6 @@ PTA保険委員長に言われた時も自動相談
 今日も素敵な1日になりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('9hKqUwsIARQ')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/9hKqUwsIARQ/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -37607,7 +37666,6 @@ PTA保険委員長に言われた時も自動相談
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-9hKqUwsIARQ">
             <button class="dialog-close" onclick="closeDialog('9hKqUwsIARQ')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -37963,7 +38021,6 @@ PTA保険委員長に言われた時も自動相談
 素敵な言葉で溢れますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('uJcLpEhIDRo')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/uJcLpEhIDRo/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -37991,7 +38048,6 @@ PTA保険委員長に言われた時も自動相談
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-uJcLpEhIDRo">
             <button class="dialog-close" onclick="closeDialog('uJcLpEhIDRo')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -38320,7 +38376,6 @@ FPは静かに言いました。では85歳で
 ありがとうございました。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('pydUFbb0iZw')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/pydUFbb0iZw/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -38348,7 +38403,6 @@ FPは静かに言いました。では85歳で
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-pydUFbb0iZw">
             <button class="dialog-close" onclick="closeDialog('pydUFbb0iZw')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -38797,7 +38851,6 @@ AIがどれほど進化しようとあなた方が
 に。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('0QmCL-wNBR0')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/0QmCL-wNBR0/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -38825,7 +38878,6 @@ AIがどれほど進化しようとあなた方が
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-0QmCL-wNBR0">
             <button class="dialog-close" onclick="closeDialog('0QmCL-wNBR0')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -39299,7 +39351,6 @@ SNSで誰かに自慢するための旅行では
 になりますように。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('bd3uFQlx3H0')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/bd3uFQlx3H0/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -39327,7 +39378,6 @@ SNSで誰かに自慢するための旅行では
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-bd3uFQlx3H0">
             <button class="dialog-close" onclick="closeDialog('bd3uFQlx3H0')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -40108,7 +40158,6 @@ DNA鑑定をしよう。それで全部はっきり
 明るい笑い声がいつまでも響いていた。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('QhJCpSIlZFg')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/QhJCpSIlZFg/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -40136,7 +40185,6 @@ DNA鑑定をしよう。それで全部はっきり
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-QhJCpSIlZFg">
             <button class="dialog-close" onclick="closeDialog('QhJCpSIlZFg')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -40613,7 +40661,6 @@ DNA鑑定をしよう。それで全部はっきり
 始まったばかりだ。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('sBQ1knaWh90')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/sBQ1knaWh90/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -40641,7 +40688,6 @@ DNA鑑定をしよう。それで全部はっきり
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-sBQ1knaWh90">
             <button class="dialog-close" onclick="closeDialog('sBQ1knaWh90')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -41265,7 +41311,6 @@ DNA鑑定をしよう。それで全部はっきり
 た。終わりではなく始まりだっ</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('bjBtxPA3_bU')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/bjBtxPA3_bU/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -41293,7 +41338,6 @@ DNA鑑定をしよう。それで全部はっきり
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-bjBtxPA3_bU">
             <button class="dialog-close" onclick="closeDialog('bjBtxPA3_bU')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -41965,7 +42009,6 @@ DNA鑑定をしよう。それで全部はっきり
 。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('2uN5XNKxk1I')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/2uN5XNKxk1I/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -41993,7 +42036,6 @@ DNA鑑定をしよう。それで全部はっきり
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-2uN5XNKxk1I">
             <button class="dialog-close" onclick="closeDialog('2uN5XNKxk1I')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -43061,7 +43103,6 @@ DNA鑑定をしよう。それで全部はっきり
 どんなものなのか</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('rnnywvGBaBU')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/rnnywvGBaBU/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -43089,7 +43130,6 @@ DNA鑑定をしよう。それで全部はっきり
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-rnnywvGBaBU">
             <button class="dialog-close" onclick="closeDialog('rnnywvGBaBU')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -43467,7 +43507,6 @@ LINEグループにも同じデータを送信
 浮かんでいた。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('wbv_wmx-xAc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/wbv_wmx-xAc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -43495,7 +43534,6 @@ LINEグループにも同じデータを送信
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-wbv_wmx-xAc">
             <button class="dialog-close" onclick="closeDialog('wbv_wmx-xAc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -43940,7 +43978,6 @@ LINEグループにも同じデータを送信
 の中は春のように温かかった。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('blb_u8SKvpc')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/blb_u8SKvpc/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -43968,7 +44005,6 @@ LINEグループにも同じデータを送信
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-blb_u8SKvpc">
             <button class="dialog-close" onclick="closeDialog('blb_u8SKvpc')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -45043,7 +45079,6 @@ LINEグループにも同じデータを送信
 ゆやさんがゆっくりと近づいてきまし</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('K5hCGcQXd6w')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/K5hCGcQXd6w/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -45071,7 +45106,6 @@ LINEグループにも同じデータを送信
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-K5hCGcQXd6w">
             <button class="dialog-close" onclick="closeDialog('K5hCGcQXd6w')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -46548,7 +46582,6 @@ LINEグループにも同じデータを送信
 。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('JZarc5oI6w8')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/JZarc5oI6w8/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -46576,7 +46609,6 @@ LINEグループにも同じデータを送信
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-JZarc5oI6w8">
             <button class="dialog-close" onclick="closeDialog('JZarc5oI6w8')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -48178,7 +48210,6 @@ LINEグループにも同じデータを送信
 た。2度と連絡しないで何</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('YlerxgD1va4')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/YlerxgD1va4/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -48206,7 +48237,6 @@ LINEグループにも同じデータを送信
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-YlerxgD1va4">
             <button class="dialog-close" onclick="closeDialog('YlerxgD1va4')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -48549,7 +48579,6 @@ LINEグループにも同じデータを送信
 ます。</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('0GEqSj95aJA')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/0GEqSj95aJA/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -48577,7 +48606,6 @@ LINEグループにも同じデータを送信
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-0GEqSj95aJA">
             <button class="dialog-close" onclick="closeDialog('0GEqSj95aJA')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -49034,7 +49062,6 @@ CMが流れている。
 次回も心に寄り添う物語をお届けし</pre>
         </dialog>
         
-        <!-- List Item -->
         <div class="card-horizontal" onclick="openDialog('CbgrJ99yHFM')">
             <div class="card-img-container">
                 <img src="https://img.youtube.com/vi/CbgrJ99yHFM/mqdefault.jpg" alt="Thumbnail" loading="lazy">
@@ -49062,7 +49089,6 @@ CMが流れている。
             </div>
         </div>
         
-        <!-- Modal -->
         <dialog id="dialog-CbgrJ99yHFM">
             <button class="dialog-close" onclick="closeDialog('CbgrJ99yHFM')">✕ 閉じる</button>
             <div class="dialog-header">
@@ -49457,6 +49483,54 @@ niet量知らず手に入れた財産に
 。</pre>
         </dialog>
         
+      </div>
+    </div>
+    
+    <!-- タブ４：Tips・ノウハウ -->
+    <div id="tab-tips" class="tab-content">
+      <div class="workflow-container">
+          <div class="section-title" style="margin-top: 0;">💡 制作Tips・ノウハウ集</div>
+          <p style="color:var(--text-dim); font-size:14px; margin-bottom: 24px; line-height: 1.6;">
+            チャンネル運営において、順番・時系列を問わず常に意識しておくべき「戦術」や「プラットフォームハック」の知見です。
+          </p>
+          
+          <div class="tips-grid">
+              <div class="tip-card">
+                  <div class="tip-icon">🛡️</div>
+                  <div class="tip-title">収益化剥奪（再利用コンテンツ）対策</div>
+                  <div class="tip-desc">
+                    YouTubeは「AIによる大量生産の紙芝居動画」を嫌います。<br>
+                    <strong>対策:</strong> 単なる静止画ではなく動画素材を背景に使う、テキストにエフェクトをつける、可能ならAIアバター等の「動く人物のワイプ（PiP）」を配置して、編集の手間と独自性をアピールしてください。
+                  </div>
+              </div>
+
+              <div class="tip-card">
+                  <div class="tip-icon">🖼️</div>
+                  <div class="tip-title">極太・高コントラストなサムネイル法則</div>
+                  <div class="tip-desc">
+                    シニア層はスマホやタブレットで見るため、「とにかく文字を大きく・太く」が鉄則です。<br>
+                    <strong>対策:</strong> 「赤×黄×黒」など高コントラストな配色を使用し、文字は3〜10文字程度の強烈なパワーワード（修羅場、底辺、悲劇など）に絞り込んでください。
+                  </div>
+              </div>
+
+              <div class="tip-card">
+                  <div class="tip-icon">🎣</div>
+                  <div class="tip-title">冒頭30秒で勝負を決めるフック設計</div>
+                  <div class="tip-desc">
+                    動画の視聴維持率は最初の30秒で決まります。前置きの挨拶は不要です。<br>
+                    <strong>対策:</strong> 開始1秒で「主人公が絶望的な状況にいる最も興味を引くセリフ」から始めてください（イン・メディアス・レスの手法）。「あの時、私は…」という回想から入るのが鉄板です。
+                  </div>
+              </div>
+              
+              <div class="tip-card">
+                  <div class="tip-icon">🤬</div>
+                  <div class="tip-title">共感をブーストさせる「憎まれ役」の作り方</div>
+                  <div class="tip-desc">
+                    スカッと系の満足度は、悪役（義母や夫）がいかに理不尽で憎たらしいかに依存します。<br>
+                    <strong>対策:</strong> 悪役のセリフに「現代の格差社会」や「世代間のすれ違い」を象徴する生々しいイヤミを言わせてください（例：「お前の年金じゃカップ麺も買えないだろ」など）。
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
 </div>
