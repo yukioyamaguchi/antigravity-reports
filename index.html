@@ -458,8 +458,8 @@
     <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">閲覧にはパスワードが必要です</div>
   </div>
   <div style="display:flex; gap:8px; width:100%; max-width:320px;">
-    <input id="authInput" type="password" placeholder="パスワード" style="flex:1; padding:12px 16px; border:1px solid var(--card-border); border-radius:12px; background:var(--card); color:var(--text); font-family:'Noto Sans JP',sans-serif; font-size:14px; outline:none;" autofocus>
-    <button id="authBtn" style="padding:12px 20px; background:var(--gold); color:var(--bg); border:none; border-radius:12px; font-weight:700; font-family:'Noto Sans JP',sans-serif; cursor:pointer;">→</button>
+    <input id="authInput" type="password" placeholder="パスワード" style="flex:1; min-width:0; padding:12px 16px; border:1px solid var(--card-border); border-radius:12px; background:var(--card); color:var(--text); font-family:'Noto Sans JP',sans-serif; font-size:14px; outline:none;" autofocus>
+    <button id="authBtn" style="flex-shrink:0; padding:12px 20px; background:var(--gold); color:var(--bg); border:none; border-radius:12px; font-weight:700; font-family:'Noto Sans JP',sans-serif; cursor:pointer;">→</button>
   </div>
   <div id="authError" style="font-size:12px; color:var(--red); display:none;">パスワードが違います</div>
 </div>
@@ -773,7 +773,16 @@ async function loadReport(date) {
 }
 
 function renderReport(data, date) {
-  document.getElementById('reportDate').textContent = data.date || '—';
+  const dStr = data.date || '';
+  let formattedDate = dStr;
+  if (dStr && dStr.includes('-')) {
+    const d = new Date(dStr);
+    if (!isNaN(d.getTime())) {
+      const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+      formattedDate = `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${weekdays[d.getDay()]}）`;
+    }
+  }
+  document.getElementById('reportDate').textContent = formattedDate || '—';
 
   // Set audio source (date-specific or latest)
   const audioSrc = date
@@ -956,7 +965,27 @@ function renderEvening(data, date) {
     });
   }
 
-  html += `<div style="margin-top:16px; font-size:11px; color:var(--text-dim);">生成: ${data.generated_at || ''}</div>`;
+  // 今月の重点課題
+  if (data.monthly_goals && data.monthly_goals.length > 0) {
+    html += '<div class="evening-sub-title" style="margin-top:24px;">📅 今月の重点課題</div>';
+    html += '<div style="font-size:12px; color:var(--text-dim); line-height:1.8;">';
+    data.monthly_goals.forEach(goal => {
+      html += `・${goal}<br>`;
+    });
+    html += '</div>';
+  }
+
+  // 長期目標
+  if (data.long_term_goals && data.long_term_goals.length > 0) {
+    html += '<div class="evening-sub-title" style="margin-top:20px;">🏔️ 長期目標</div>';
+    html += '<div style="font-size:12px; color:var(--text-dim); line-height:1.8;">';
+    data.long_term_goals.forEach(goal => {
+      html += `・${goal}<br>`;
+    });
+    html += '</div>';
+  }
+
+  html += `<div style="margin-top:24px; font-size:11px; color:var(--text-dim); border-top:1px solid var(--card-border); padding-top:12px;">生成: ${data.generated_at || ''}</div>`;
 
   document.getElementById('eveningContent').innerHTML = html;
 }
