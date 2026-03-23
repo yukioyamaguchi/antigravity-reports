@@ -476,6 +476,7 @@
       <button class="tab-item" onclick="switchTab('workflow')">🗺️ 講座：チャンネル構築・運営の進め方</button>
       <button class="tab-item" onclick="switchTab('tips')">💡 制作Tips・ノウハウ集</button>
       <button class="tab-item" onclick="switchTab('demovideo')">🎬 デモ動画（字幕確認）</button>
+      <button class="tab-item" onclick="switchTab('issues')">📝 検討事項・伸びしろ</button>
     </div>
     
     
@@ -1116,6 +1117,56 @@
     </div>
     
     <!-- タブ１：ストーリー構成分析（パターンまとめ） -->
+    
+    <div id="tab-issues" class="tab-content">
+      <div class="workflow-container">
+          <div class="section-title">📝 今後の検討事項・さらなる「伸びしろ」</div>
+          <p style="color:var(--text-dim); font-size:14px; margin-bottom: 32px;">
+            今回のプロトタイプ制作を通じて見えてきた、チャンネル本番運用に向けた改善ポイントと技術的な検討事項です。
+          </p>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number" style="background:#60a5fa; color:white;">Visual</div>
+                  <div class="step-title">キャラクター・画像の一貫性のさらなる向上</div>
+              </div>
+              <div class="step-content">
+                  現在は高品質なプロンプト制御（Gemini 2.5 Flash / Flux）により、ある程度の一貫性を保っていますが、シーン数が増えた際の「微細な服装や顔のズレ」をさらに抑えるため、特定のモデル学習（LoRA）や、リファレンス画像からの高精度な生成（IP-Adapter案）を検討可能です。
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number" style="background:#a855f7; color:white;">Audio</div>
+                  <div class="step-title">ナレーションの感情表現と「間」の最適化</div>
+              </div>
+              <div class="step-content">
+                  使用しているGemini TTS（Aoede音源）は非常に肉声に近いですが、悲しいシーンや怒りのシーンなど、物語の感情曲線に合わせた音色や話速の「意図的な制御」をさらに深めることで、視聴者の没入感を高められます。
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number" style="background:#f87171; color:white;">Editing</div>
+                  <div class="step-title">テロップ（字幕）の最適解の検証</div>
+              </div>
+              <div class="step-content">
+                  今回、サイズを48から24へと調整し、可読性と画面構成のバランスを追求しました。本番運用では、主要な視聴端末（スマートフォン）での視認性をABテストで確認しつつ、文字数に応じた自動的な改行処理やフォントスタイルの洗練を図ります。
+              </div>
+          </div>
+
+          <div class="step-card">
+              <div class="step-header">
+                  <div class="step-number" style="background:#10b981; color:white;">System</div>
+                  <div class="step-title">完全自動パイプラインの安定化</div>
+              </div>
+              <div class="step-content">
+                  「シナリオ → 画像生成 → 音声生成 → 字幕生成 → 編集（FFmpeg）」の各工程をシームレスに結合するバックエンドシステムの精度を高め、1本の物語（30分〜）が1時間以内に完成する「量産スピード」と「最高品質」を両立させていきます。
+              </div>
+          </div>
+      </div>
+    </div>
+
     <div id="tab-analysis" class="tab-content">
       <div class="workflow-container">
           <div class="section-title">バズ動画の5大パターン (AI分析まとめ)</div>
