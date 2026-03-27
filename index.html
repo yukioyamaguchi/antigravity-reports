@@ -654,12 +654,15 @@ const BASE = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}`;
 
 // Audio speed controls
 const audio = document.getElementById('audioPlayer');
+const eveningAudio = document.getElementById('eveningAudio'); // 振り返り音声用
 const speedBtns = document.querySelectorAll('.speed-btn');
 
 speedBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     const speed = parseFloat(btn.dataset.speed);
     audio.playbackRate = speed;
+    if (eveningAudio) eveningAudio.playbackRate = speed;
+    
     speedBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     // Save preference
@@ -670,7 +673,10 @@ speedBtns.forEach(btn => {
 // Restore saved speed
 const savedSpeed = localStorage.getItem('ag-audio-speed');
 if (savedSpeed) {
-  audio.playbackRate = parseFloat(savedSpeed);
+  const speed = parseFloat(savedSpeed);
+  audio.playbackRate = speed;
+  if (eveningAudio) eveningAudio.playbackRate = speed;
+  
   speedBtns.forEach(b => {
     b.classList.remove('active');
     if (b.dataset.speed === savedSpeed) b.classList.add('active');
